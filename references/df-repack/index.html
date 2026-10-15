@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="zh-CN" translate="no">
+  <head>
+    <script>(function(){
+var CDN="https://cdn.lza11111.com/web/",HOSTS=["df.lza11111.com","dfc.lza11111.com","df-beta.lza11111.com"],KEY="df:staticFallback";
+var cdn=HOSTS.indexOf(location.hostname)!==-1;
+try{if(cdn&&sessionStorage.getItem(KEY))cdn=false;}catch(e){}
+try{var o=localStorage.getItem("df:staticCdn");if(cdn&&o)CDN=o;}catch(e){}
+window.__DF_STATIC__=cdn?CDN:'/';
+window.__DF_STATIC_FALLBACK__=function(what){
+if(!cdn)return false;
+try{sessionStorage.setItem(KEY,JSON.stringify({what:String(what),at:Date.now()}));}catch(e){return false;}
+cdn=false;location.reload();return true;};
+})();</script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0a0a0c" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="nightmode" content="disable" />
+    <meta name="google" content="notranslate" />
+    <meta name="force-rendering" content="webkit" />
+    <title>三角洲行动 - 理包模拟器</title>
+
+    <script>
+      // Browser-engine gate. Runs before the stylesheet and the entry module.
+      // Tailwind v4's output needs @layer / @property / color-mix() / oklch();
+      // an engine without them drops the whole stylesheet, so the page renders
+      // unstyled and the React-side startup checks never get a chance to speak.
+      (function () {
+        var MIN_CHROMIUM = 111;
+        var BYPASS_KEY = 'df:ignoreBrowserCheck';
+
+        function cssSupports(prop, value) {
+          try {
+            return !!(window.CSS && CSS.supports && CSS.supports(prop, value));
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function isBypassed() {
+          try {
+            if (location.search.indexOf('ignoreBrowserCheck=1') !== -1) return true;
+            return !!window.localStorage && localStorage.getItem(BYPASS_KEY) === '1';
+          } catch (e) {
+            return false;
+          }
+        }
+
+        var missing = [];
+        if (typeof CSSLayerBlockRule === 'undefined') missing.push('CSS 级联层 @layer');
+        if (!(window.CSS && typeof CSS.registerProperty === 'function')) missing.push('CSS 自定义属性 @property');
+        if (!cssSupports('color', 'color-mix(in oklab, red, blue)')) missing.push('CSS color-mix()');
+        if (!cssSupports('color', 'oklch(0.5 0.1 200)')) missing.push('CSS oklch() 色彩');
+        if (!('noModule' in document.createElement('script'))) missing.push('ES Module 模块脚本');
+        if (typeof WebAssembly !== 'object' || typeof WebAssembly.instantiate !== 'function') missing.push('WebAssembly');
+
+        var chromeMatch = navigator.userAgent.match(/(?:Chrome|CriOS)\/(\d+)/);
+        var bypassed = missing.length > 0 && isBypassed();
+
+        window.__DF_BROWSER_SUPPORT__ = {
+          ok: missing.length === 0 || bypassed,
+          bypassed: bypassed,
+          missing: missing,
+          minChromium: MIN_CHROMIUM,
+          chromium: chromeMatch ? parseInt(chromeMatch[1], 10) : null,
+          bypassKey: BYPASS_KEY,
+        };
+      })();
+    </script>
+
+    <!-- toy:omit: the Toy shell owns the page's metadata, and these name our own site -->
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="三角洲行动理包模拟器 —— 理包模拟器，自由拖拽装备、护甲、胸挂、背包、枪械配件与弹药，练习烽火地带理包能力"
+    />
+    <meta
+      name="keywords"
+      content="三角洲行动,理包模拟器,烽火地带,摸金,理包,跑刀,背包模拟,装备搭配,出装,枪械配件,Delta Force,repack simulator"
+    />
+    <meta name="author" content="lza11111" />
+    <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="canonical" href="https://df.lza11111.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="三角洲行动 - 理包模拟器" />
+    <meta property="og:title" content="三角洲行动 - 理包模拟器" />
+    <meta
+      property="og:description"
+      content="理包模拟器，自由拖拽装备、护甲、胸挂、背包、枪械配件与弹药，练习烽火地带理包能力"
+    />
+    <meta property="og:url" content="https://df.lza11111.com/" />
+    <meta property="og:image" content="https://df.lza11111.com/icon-512x512.png" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="三角洲行动 - 理包模拟器" />
+    <meta
+      name="twitter:description"
+      content="理包模拟器，自由拖拽装备、护甲、胸挂、背包、枪械配件与弹药，练习烽火地带理包能力"
+    />
+    <meta name="twitter:image" content="https://df.lza11111.com/icon-512x512.png" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "三角洲行动 - 理包模拟器",
+        "url": "https://df.lza11111.com/",
+        "description": "理包模拟器，自由拖拽装备、护甲、胸挂、背包、枪械配件与弹药，练习烽火地带理包能力",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "zh-CN",
+        "author": { "@type": "Person", "name": "lza11111" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+      }
+    </script>
+    <!-- /toy:omit -->
+    <script>(function(){var b=window.__DF_STATIC__||'/';document.write("<script onerror=\"window.__DF_STATIC_FALLBACK__&&__DF_STATIC_FALLBACK__('entry')\" type=\"module\" crossorigin src=\""+b+"assets/index-CXOr0jCQ.js\"><\/script><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/upZS1vje.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/DaqAyKnB.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/BbfpZ9Tg.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/BsAUap0-.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/DCnPAmJA.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/D18WpfmW.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/DH_TcroW.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/CVV4VjW0.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/CTgoGSSb.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/CJHSOWel.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/B0ph8fJw.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/B8_Fml0O.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/Mv9Uo35b.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/6SnBOKH0.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/BCYuid2i.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/DCRvzjOg.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/C86xxr5C.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/CWuatdww.js\"><link rel=\"modulepreload\" crossorigin href=\""+b+"assets/tATh_bq6.js\"><link onerror=\"window.__DF_STATIC_FALLBACK__&&__DF_STATIC_FALLBACK__('entry')\" rel=\"stylesheet\" crossorigin href=\""+b+"assets/DD64ClJq.css\">");})();</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="boot-blocked" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483647;background:#0a0a0c;color:#e0e0e0;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:15px;line-height:1.8;padding:28px 20px;overflow:auto;-webkit-overflow-scrolling:touch;">
+      <div style="max-width:640px;margin:0 auto;">
+        <div id="boot-blocked-title" style="color:#ff6b6b;font-size:20px;font-weight:bold;margin:0 0 14px;"></div>
+        <div id="boot-blocked-lead" style="margin:0 0 16px;color:#cfd6e0;"></div>
+        <div id="boot-blocked-detail" style="margin:0 0 18px;padding:12px 14px;background:#15161b;border-left:3px solid #4da3ff;border-radius:4px;font-size:13px;line-height:1.7;color:#9fb0c4;white-space:pre-wrap;word-break:break-all;"></div>
+        <div style="color:#ffd86b;font-weight:bold;margin:0 0 8px;">如何解决</div>
+        <div id="boot-blocked-fix-engine" style="display:none;">
+          <div style="margin:0 0 8px;">1. 升级浏览器到最新版本：Chrome / Edge 需 111 及以上，iOS 需 16.4 及以上，Firefox 需 128 及以上。</div>
+          <div style="margin:0 0 8px;">2. 如果是在 微信 / QQ / 其他 App 内打开的，点右上角菜单 →「在浏览器中打开」，用系统浏览器访问。</div>
+          <div style="margin:0 0 20px;">3. 仍打不开请加 QQ 群 <span style="color:#ffd86b;font-weight:bold;">423842711</span> 反馈，并附上本页截图。</div>
+        </div>
+        <div id="boot-blocked-fix-style" style="display:none;">
+          <div style="margin:0 0 8px;">1. 刷新页面重试，或切换 Wi-Fi / 移动网络后再试。</div>
+          <div style="margin:0 0 8px;">2. 如果是在 微信 / QQ / 其他 App 内打开的，点右上角菜单 →「在浏览器中打开」，用系统浏览器访问。</div>
+          <div style="margin:0 0 8px;">3. 仍打不开请加 QQ 群 <span style="color:#ffd86b;font-weight:bold;">423842711</span> 反馈，并附上本页截图。</div>
+          <!-- toy:omit -->
+          <div style="margin:0 0 8px;">4. 在中国大陆可尝试国内镜像：<a href="https://dfc.lza11111.com" style="color:#7fb6ff;">https://dfc.lza11111.com</a></div>
+          <!-- /toy:omit -->
+        </div>
+        <div style="margin-top:20px;font-size:12px;color:#6b7280;"><a href="#" id="boot-blocked-bypass" style="color:#7fb6ff;"></a></div>
+      </div>
+    </div>
+    <script>
+      // Paints the block panel. Inline styles only — the stylesheet is either
+      // unsupported or missing by the time this runs.
+      //
+      // reason 'engine': the head gate found the engine short of what the
+      // stylesheet needs. reason 'stylesheet': the engine passed but the sheet
+      // never took effect (blocked request, proxy, filtered CDN).
+      (function () {
+        var TEXT = {
+          engine: {
+            title: '浏览器内核版本过低，无法运行',
+            lead: '当前浏览器的内核不支持部分特性，因此已停止加载。',
+            bypass: '仍要继续加载（界面可能无法正常显示）',
+          },
+          stylesheet: {
+            title: '页面样式未能加载',
+            lead: '样式文件没有生效，界面可能会完全错位、无法操作，因此已停止加载。',
+            bypass: '仍要继续加载（界面可能无法正常显示）',
+          },
+        };
+
+        function detailLines(support, reason) {
+          var lines = [];
+          if (reason === 'engine') {
+            lines.push('缺少的特性：' + support.missing.join('、'));
+          } else {
+            lines.push('原因：样式表已请求但未生效');
+            lines.push('已加载样式表数：' + document.querySelectorAll('link[rel="stylesheet"], style').length);
+          }
+          lines.push('内核版本：' + (support.chromium ? 'Chromium ' + support.chromium + '（需 ' + support.minChromium + ' 及以上）' : '未知'));
+          lines.push('User-Agent：' + navigator.userAgent);
+          return lines;
+        }
+
+        function hide() {
+          var panel = document.getElementById('boot-blocked');
+          if (panel) panel.style.display = 'none';
+          var root = document.getElementById('root');
+          if (root) root.style.display = '';
+          window.__DF_BLOCKED__ = false;
+        }
+
+        window.__DF_BLOCK__ = function (reason) {
+          if (window.__DF_BLOCKED__) return;
+          window.__DF_BLOCKED__ = true;
+
+          var support = window.__DF_BROWSER_SUPPORT__ || { missing: [], chromium: null, minChromium: 0 };
+          var text = TEXT[reason] || TEXT.engine;
+
+          var title = document.getElementById('boot-blocked-title');
+          if (title) title.textContent = text.title;
+          var lead = document.getElementById('boot-blocked-lead');
+          if (lead) lead.textContent = text.lead;
+          var detail = document.getElementById('boot-blocked-detail');
+          if (detail) detail.textContent = detailLines(support, reason).join('\n');
+
+          var fix = document.getElementById(reason === 'stylesheet' ? 'boot-blocked-fix-style' : 'boot-blocked-fix-engine');
+          if (fix) fix.style.display = 'block';
+
+          var bypass = document.getElementById('boot-blocked-bypass');
+          if (bypass) {
+            bypass.textContent = text.bypass;
+            bypass.onclick = function (e) {
+              if (e && e.preventDefault) e.preventDefault();
+              // The engine block happens before the app boots, so continuing
+              // means reloading past the gate; the stylesheet block happens
+              // after, so it is just a matter of uncovering what is there.
+              if (reason === 'stylesheet') {
+                hide();
+                return false;
+              }
+              try {
+                localStorage.setItem(support.bypassKey, '1');
+              } catch (err) {}
+              var url = location.href.split('#')[0];
+              location.href = url + (url.indexOf('?') === -1 ? '?' : '&') + 'ignoreBrowserCheck=1';
+              return false;
+            };
+          }
+
+          var root = document.getElementById('root');
+          if (root) root.style.display = 'none';
+          var panel = document.getElementById('boot-blocked');
+          if (panel) panel.style.display = 'block';
+        };
+
+        var support = window.__DF_BROWSER_SUPPORT__;
+        if (support && !support.ok) {
+          window.__DF_BLOCK__('engine');
+          return;
+        }
+
+        // The engine can do it, so anything still unstyled is the sheet itself
+        // failing to arrive. `--df-css-ready` is set on :root by index.css.
+        if (support && support.bypassed) return;
+
+        // Dev serves CSS through the HMR client, which lands well after the
+        // markup; production ships a render-blocking <link>.
+        var DEADLINE_MS = document.querySelector('script[src*="/@vite/client"]') ? 60000 : 10000;
+        var deadline = new Date().getTime() + DEADLINE_MS;
+
+        function stylesApplied() {
+          try {
+            return getComputedStyle(document.documentElement)
+              .getPropertyValue('--df-css-ready').trim() === '1';
+          } catch (e) {
+            return true;
+          }
+        }
+
+        function poll() {
+          if (stylesApplied()) return;
+          if (new Date().getTime() >= deadline) {
+            // Read off the CDN, the sheet gets one more try from the origin.
+            if (window.__DF_STATIC_FALLBACK__ && window.__DF_STATIC_FALLBACK__('stylesheet')) return;
+            window.__DF_BLOCK__('stylesheet');
+            return;
+          }
+          setTimeout(poll, 250);
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', poll);
+        } else {
+          poll();
+        }
+      })();
+    </script>
+    <div id="load-diagnostics" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#0a0a0c;color:#e0e0e0;font-family:monospace;font-size:13px;padding:24px;overflow:auto;z-index:99999;">
+      <h2 style="color:#ff6b6b;margin:0 0 16px;">页面加载失败 — 诊断信息</h2>
+      <div id="diag-recommendations" style="display:none;margin:0 0 20px;padding:14px 16px;background:#1a2030;border-left:3px solid #4da3ff;border-radius:4px;line-height:1.7;"></div>
+      <pre id="diag-output" style="white-space:pre-wrap;line-height:1.6;"></pre>
+      <p style="color:#888;margin-top:24px;">请截图此页面并发送给开发者以协助排查。</p>
+    </div>
+    <script>
+      // Inline diagnostics — runs before any module scripts.
+      // If the app boots successfully it will mount into #root and this never shows.
+      (function () {
+        // The gate above already put an explanation on screen.
+        var support = window.__DF_BROWSER_SUPPORT__;
+        if (support && !support.ok) return;
+
+        var TIMEOUT_MS = 15000;
+        var diag = [];
+        var errors = [];
+
+        // 1. Basic environment info
+        diag.push('[ 环境信息 ]');
+        diag.push('User-Agent: ' + navigator.userAgent);
+        diag.push('URL: ' + location.href);
+        diag.push('Protocol: ' + location.protocol);
+        diag.push('静态资源: ' + (window.__DF_STATIC__ || '/'));
+        diag.push('Time: ' + new Date().toISOString());
+
+        // 2. Check ES module support & WebAssembly support
+        var supportsModule = 'noModule' in document.createElement('script');
+        diag.push('ES Module 支持: ' + (supportsModule ? '✓' : '✗ (浏览器过旧)'));
+        diag.push('WebAssembly 支持: ' + (typeof WebAssembly === 'object' && typeof WebAssembly.instantiate === 'function' ? '✓' : '✗ (不支持WASM)'));
+        diag.push('WebAssembly.instantiateStreaming: ' + (typeof WebAssembly.instantiateStreaming === 'function' ? '✓' : '✗ (将回退到ArrayBuffer)'));
+
+        // 2b. Network connection info
+        var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        if (conn) {
+          diag.push('网络类型: ' + (conn.effectiveType || '未知'));
+          diag.push('下行速度: ' + (conn.downlink !== undefined ? conn.downlink + ' Mbps' : '未知'));
+          diag.push('往返延迟: ' + (conn.rtt !== undefined ? conn.rtt + ' ms' : '未知'));
+          if (conn.saveData) diag.push('省流模式: ✓ (可能限制资源加载)');
+        } else {
+          diag.push('网络信息API: 不可用');
+        }
+
+        // 2c. Device info
+        if (navigator.deviceMemory) {
+          diag.push('设备内存: ' + navigator.deviceMemory + ' GB');
+        }
+        diag.push('硬件并发数: ' + (navigator.hardwareConcurrency || '未知'));
+
+        // 2d. Storage availability
+        try {
+          localStorage.setItem('__diag_test', '1');
+          localStorage.removeItem('__diag_test');
+          diag.push('localStorage: ✓');
+        } catch (e) {
+          diag.push('localStorage: ✗ (' + e.message + ')');
+        }
+
+        // 3. Collect resource loading errors
+        window.addEventListener('error', function (e) {
+          if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+            errors.push({
+              tag: e.target.tagName,
+              src: e.target.src || e.target.href || '(unknown)',
+              type: e.target.type || '',
+              time: new Date().toISOString(),
+            });
+          }
+        }, true); // capture phase to catch resource errors
+
+        // 4. Collect unhandled JS errors
+        var jsErrors = [];
+        window.addEventListener('error', function (e) {
+          if (e.message) {
+            jsErrors.push({
+              message: e.message,
+              filename: e.filename || '',
+              lineno: e.lineno,
+              colno: e.colno,
+              time: new Date().toISOString(),
+            });
+          }
+        });
+
+        // 5. Collect unhandled promise rejections (WASM load failures often show up here)
+        var promiseErrors = [];
+        window.addEventListener('unhandledrejection', function (e) {
+          promiseErrors.push({
+            reason: e.reason ? (e.reason.message || String(e.reason)) : '(unknown)',
+            time: new Date().toISOString(),
+          });
+        });
+
+        // 6. After timeout, check if app loaded
+        setTimeout(function () {
+          if (window.__DF_BLOCKED__) return;
+
+          var root = document.getElementById('root');
+          var appLoaded = root && root.children.length > 0;
+
+          if (appLoaded) return; // App rendered fine, do nothing
+
+          // Still loading off the CDN: try the origin before diagnosing.
+          if (window.__DF_STATIC_FALLBACK__ && window.__DF_STATIC_FALLBACK__('timeout')) return;
+
+          diag.push('');
+          diag.push('[ 加载状态 ]');
+          diag.push('#root 子元素数: ' + (root ? root.children.length : 'root不存在'));
+          diag.push('document.readyState: ' + document.readyState);
+
+          // Check if CSS loaded (look for any stylesheet)
+          var stylesheets = document.querySelectorAll('link[rel="stylesheet"], style');
+          diag.push('已加载样式表数: ' + stylesheets.length);
+
+          // Check scripts
+          var scripts = document.querySelectorAll('script');
+          diag.push('Script 标签数: ' + scripts.length);
+
+          // Resource errors
+          if (errors.length > 0) {
+            diag.push('');
+            diag.push('[ 资源加载失败 ]');
+            errors.forEach(function (e) {
+              diag.push('  ' + e.tag + ' ' + e.src + (e.type ? ' (type=' + e.type + ')' : ''));
+            });
+          }
+
+          // JS errors
+          if (jsErrors.length > 0) {
+            diag.push('');
+            diag.push('[ JavaScript 错误 ]');
+            jsErrors.forEach(function (e) {
+              diag.push('  ' + e.message);
+              if (e.filename) diag.push('    at ' + e.filename + ':' + e.lineno + ':' + e.colno);
+            });
+          }
+
+          // Promise rejections
+          if (promiseErrors.length > 0) {
+            diag.push('');
+            diag.push('[ Promise 拒绝 (可能是WASM/动态导入失败) ]');
+            promiseErrors.forEach(function (e) {
+              diag.push('  ' + e.reason);
+            });
+          }
+
+          // Performance timing — show how long key resources actually took
+          diag.push('');
+          diag.push('[ 资源加载耗时 (Performance API) ]');
+          if (window.performance && performance.getEntriesByType) {
+            var navEntry = performance.getEntriesByType('navigation')[0];
+            if (navEntry) {
+              diag.push('  DNS查询: ' + Math.round(navEntry.domainLookupEnd - navEntry.domainLookupStart) + 'ms');
+              diag.push('  TCP连接: ' + Math.round(navEntry.connectEnd - navEntry.connectStart) + 'ms');
+              if (navEntry.secureConnectionStart > 0) {
+                diag.push('  TLS握手: ' + Math.round(navEntry.connectEnd - navEntry.secureConnectionStart) + 'ms');
+              }
+              diag.push('  首字节(TTFB): ' + Math.round(navEntry.responseStart - navEntry.requestStart) + 'ms');
+              diag.push('  HTML下载: ' + Math.round(navEntry.responseEnd - navEntry.responseStart) + 'ms');
+              diag.push('  DOM解析完成: ' + Math.round(navEntry.domContentLoadedEventEnd) + 'ms');
+            }
+
+            var resources = performance.getEntriesByType('resource');
+            // Show slowest resources & any WASM/JS chunks
+            var interesting = resources.filter(function (r) {
+              return r.name.indexOf('.wasm') !== -1
+                || (r.name.indexOf('.js') !== -1 && r.duration > 1000)
+                || r.duration > 3000;
+            }).sort(function (a, b) { return b.duration - a.duration; }).slice(0, 10);
+
+            if (interesting.length > 0) {
+              diag.push('');
+              diag.push('[ 慢资源 (>1s JS / >3s 其他 / WASM) ]');
+              interesting.forEach(function (r) {
+                var name = r.name.replace(location.origin, '');
+                if (name.length > 80) name = '...' + name.slice(-77);
+                diag.push('  ' + Math.round(r.duration) + 'ms  ' + name + '  (' + Math.round(r.transferSize / 1024) + 'KB)');
+              });
+            }
+
+            // Resource count summary
+            var jsCount = resources.filter(function (r) { return r.initiatorType === 'script' || r.name.indexOf('.js') !== -1; }).length;
+            var cssCount = resources.filter(function (r) { return r.initiatorType === 'link' && r.name.indexOf('.css') !== -1; }).length;
+            var imgCount = resources.filter(function (r) { return r.initiatorType === 'img' || /\.(png|jpg|jpeg|gif|svg|webp|ico)/.test(r.name); }).length;
+            var wasmCount = resources.filter(function (r) { return r.name.indexOf('.wasm') !== -1; }).length;
+            var fontCount = resources.filter(function (r) { return /\.(woff2?|ttf|otf|eot)/.test(r.name); }).length;
+            var otherCount = resources.length - jsCount - cssCount - imgCount - wasmCount - fontCount;
+            diag.push('');
+            diag.push('[ 已加载静态资源: ' + resources.length + ' 个 ]');
+            diag.push('  JS: ' + jsCount + ', CSS: ' + cssCount + ', 图片: ' + imgCount + ', WASM: ' + wasmCount + ', 字体: ' + fontCount + ', 其他: ' + otherCount);
+
+            // Check if any WASM resource was loaded at all
+            var wasmResources = resources.filter(function (r) { return r.name.indexOf('.wasm') !== -1; });
+            diag.push('');
+            diag.push('[ WASM 加载 ]');
+            if (wasmResources.length === 0) {
+              diag.push('  ✗ 未检测到WASM资源加载 (可能尚未开始或被阻止)');
+            } else {
+              wasmResources.forEach(function (r) {
+                var name = r.name.replace(location.origin, '');
+                diag.push('  ' + name);
+                diag.push('    耗时: ' + Math.round(r.duration) + 'ms, 大小: ' + Math.round(r.transferSize / 1024) + 'KB');
+                if (r.responseStatus && r.responseStatus !== 200) {
+                  diag.push('    ✗ HTTP状态: ' + r.responseStatus);
+                }
+              });
+            }
+          } else {
+            diag.push('  Performance API 不可用');
+          }
+
+          // Network probe: try fetching a known asset to diagnose network issues
+          diag.push('');
+          diag.push('[ 网络探测 ]');
+
+          var probesDone = 0;
+          var totalProbes = 3;
+
+          function showDiagnostics() {
+            probesDone++;
+            if (probesDone < totalProbes) return;
+
+            // CSP check
+            var cspMeta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+            if (cspMeta) {
+              diag.push('');
+              diag.push('[ CSP Meta ]');
+              diag.push('  ' + cspMeta.getAttribute('content'));
+            }
+
+            // ServiceWorker status
+            if ('serviceWorker' in navigator && typeof navigator.serviceWorker.getRegistration === 'function') {
+              navigator.serviceWorker.getRegistration().then(function (reg) {
+                diag.push('');
+                diag.push('[ Service Worker ]');
+                diag.push('  状态: ' + (reg ? '已注册 (' + (reg.active ? 'active' : 'waiting') + ')' : '未注册'));
+                render();
+              }).catch(function () {
+                diag.push('  SW 查询失败');
+                render();
+              });
+            } else {
+              diag.push('');
+              diag.push('[ Service Worker ]');
+              diag.push('  不支持');
+              render();
+            }
+          }
+
+          function probeEndpoint(url, label) {
+            var start = Date.now();
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.timeout = 8000;
+            xhr.onload = function () {
+              var elapsed = Date.now() - start;
+              diag.push('  ' + label + ': HTTP ' + xhr.status + ', ' + elapsed + 'ms, Content-Type: ' + (xhr.getResponseHeader('Content-Type') || '(none)') + ', Size: ' + (xhr.responseText ? xhr.responseText.length : 0));
+              showDiagnostics();
+            };
+            xhr.onerror = function () {
+              diag.push('  ' + label + ': 网络错误 (可能被防火墙/代理拦截)');
+              showDiagnostics();
+            };
+            xhr.ontimeout = function () {
+              diag.push('  ' + label + ': 超时 (>8s)');
+              showDiagnostics();
+            };
+            xhr.send();
+          }
+
+          // Probe the main page, favicon, and API endpoint
+          probeEndpoint(location.href, '当前页面');
+          probeEndpoint('/favicon-32x32.png', 'favicon');
+          probeEndpoint('/health', 'API后端');
+
+          function buildRecommendations() {
+            var recs = [];
+
+            // 1. Chrome / Chromium version too low
+            // Match either pure Chrome or Chromium-based UAs (Edge/QQ/WeChat all expose Chrome/<ver>).
+            var MIN_CHROME = (window.__DF_BROWSER_SUPPORT__ && window.__DF_BROWSER_SUPPORT__.minChromium) || 111;
+            var chromeMatch = navigator.userAgent.match(/Chrome\/(\d+)/);
+            var chromeVer = chromeMatch ? parseInt(chromeMatch[1], 10) : null;
+            var chromeIssue = chromeVer !== null && chromeVer < MIN_CHROME;
+            if (chromeIssue) {
+              recs.push({
+                title: '浏览器版本过低',
+                body: '检测到 Chromium 内核版本 ' + chromeVer + '(建议 ≥ ' + MIN_CHROME + ')。请升级到最新版 Chrome / Edge,或在 QQ / 微信 内置浏览器中点击右上角菜单 → 在浏览器中打开,使用系统最新浏览器后再试。',
+              });
+            }
+
+            /* toy:omit */
+            // 2. Loading too long — only when not already on the China mirror.
+            // We're already inside the timeout handler, so the load by definition exceeded TIMEOUT_MS.
+            // Suggest the China mirror unless we're already there, or unless a Chromium-version issue
+            // already explains the failure.
+            var onAltDomain = location.hostname === 'dfc.lza11111.com';
+            var slowLoadIssue = !chromeIssue && !onAltDomain;
+            if (slowLoadIssue) {
+              recs.push({
+                title: '加载时间过长',
+                body: '页面加载超时。如果你在中国大陆,可尝试国内镜像: <a href="https://dfc.lza11111.com" style="color:#7fb6ff;text-decoration:underline;">https://dfc.lza11111.com</a>',
+              });
+            }
+            /* /toy:omit */
+
+            // 3. Fallback: nothing matched — tell the user how to reach us.
+            if (recs.length === 0) {
+              recs.push({
+                title: '未识别到具体原因',
+                body: '请加 QQ 群 <span style="color:#ffd86b;font-weight:bold;">423842711</span> 反馈,并附上下方完整诊断信息截图。',
+              });
+            }
+
+            return recs;
+          }
+
+          function render() {
+            var el = document.getElementById('diag-output');
+            var panel = document.getElementById('load-diagnostics');
+            var recBox = document.getElementById('diag-recommendations');
+            if (recBox) {
+              var recs = buildRecommendations();
+              var html = '<div style="color:#7fb6ff;font-weight:bold;margin-bottom:8px;">建议解决方案</div>';
+              for (var i = 0; i < recs.length; i++) {
+                html += '<div style="margin-top:' + (i === 0 ? '0' : '10px') + ';"><span style="color:#ffd86b;">› ' + recs[i].title + '</span><div style="color:#cfd6e0;margin-top:2px;">' + recs[i].body + '</div></div>';
+              }
+              recBox.innerHTML = html;
+              recBox.style.display = 'block';
+            }
+            if (el && panel) {
+              el.textContent = diag.join('\n');
+              panel.style.display = 'block';
+            }
+          }
+        }, TIMEOUT_MS);
+      })();
+    </script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"1e4f304df22041089f89e093783e3cb5","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

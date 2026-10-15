@@ -1,0 +1,44 @@
+[
+  {
+    "grade": 1,
+    "id": "earthen-cup",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 1, single isolated game sprite. Subject: One humble squat terracotta drinking mug, chunky single handle, warm russet clay, cream interior, small chipped rim, no ornament. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-1-earthen-cup-v2.png"
+  },
+  {
+    "grade": 2,
+    "id": "bronze-bell",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 2, single isolated game sprite. Subject: One old bronze hand bell with chunky short wooden handle, broad flared green-patinated bronze mouth and visible clapper, three-quarter view. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-2-bronze-bell-v2.png"
+  },
+  {
+    "grade": 3,
+    "id": "blue-teapot",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 3, single isolated game sprite. Subject: One plump cobalt blue glazed ceramic teapot with ivory lid, curved short spout and large loop handle, simple pale cloud motifs. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-3-blue-teapot-v2.png"
+  },
+  {
+    "grade": 4,
+    "id": "silver-pocket-watch",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 4, single isolated game sprite. Subject: One antique silver pocket watch, round ivory dial with simple dark hour ticks and two hands but no digits, thick sculpted silver case, short curved chain attached, three-quarter view. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-4-silver-pocket-watch-v2.png"
+  },
+  {
+    "grade": 5,
+    "id": "jade-turtle",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 5, single isolated game sprite. Subject: One precious jade turtle statuette, chunky emerald green faceted domed shell with gold edging and a small amber gem, four short feet, friendly sculpted head, no pedestal. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-5-jade-turtle-v2.png"
+  },
+  {
+    "grade": 6,
+    "id": "royal-music-box",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 6, single isolated game sprite. Subject: One royal red enamel and gold music box, open hinged lid, chunky ornate gold feet, small gold mechanical songbird inside, rich crimson panels, blue gemstone clasp, compact readable silhouette. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-6-royal-music-box-v2.png"
+  },
+  {
+    "grade": 7,
+    "id": "stellar-armillary",
+    "prompt": "Use case: stylized-concept. Asset type: Wonderseeker inventory item grade 7, single isolated game sprite. Subject: One legendary celestial armillary sphere: glowing cyan crystal orb held within three broad interlocking gold orbital rings with small purple gemstone settings, chunky short ivory-gold pedestal, miniature four-point star inside orb. No external aura or floating particles. Style: polished chunky cartoon collectible, thick very dark navy outlines, broad polygonal color facets, simplified cel shading, bright upper-left lighting, playful exaggerated proportions, strong readable silhouette at 64px. Three-quarter view, centered, entire object within square canvas with 10% transparent margin. Genuinely transparent background. No text, lettering, frame, scene, floor, cast shadow, watermark, or external rarity glow. Match a cozy fantasy treasure collecting game. Produce exactly ONE object.",
+    "file": "grade-7-stellar-armillary-v2.png"
+  }
+]

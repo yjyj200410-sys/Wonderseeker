@@ -1,0 +1,412 @@
+{
+  "version": "singleplayer-economy-v2",
+  "date": "2026-10-14",
+  "mode": "offline_singleplayer",
+  "currency": {
+    "integer": true,
+    "starting_balance": 3000,
+    "sale_fee": 0,
+    "sale_multiplier": 1
+  },
+  "ordinary": {
+    "grade_count": 7,
+    "value_slots_per_grade": 20,
+    "value_slots": [
+      [
+        444,
+        472,
+        487,
+        499,
+        509,
+        517,
+        525,
+        532,
+        539,
+        546,
+        553,
+        560,
+        567,
+        574,
+        582,
+        590,
+        600,
+        612,
+        627,
+        655
+      ],
+      [
+        4441,
+        4722,
+        4878,
+        4995,
+        5092,
+        5177,
+        5254,
+        5327,
+        5397,
+        5466,
+        5533,
+        5602,
+        5672,
+        5745,
+        5822,
+        5907,
+        6004,
+        6121,
+        6277,
+        6558
+      ],
+      [
+        44416,
+        47226,
+        48788,
+        49953,
+        50920,
+        51772,
+        52549,
+        53279,
+        53978,
+        54661,
+        55338,
+        56021,
+        56720,
+        57450,
+        58227,
+        59079,
+        60046,
+        61211,
+        62773,
+        65583
+      ],
+      [
+        444162,
+        472265,
+        487881,
+        499532,
+        509207,
+        517720,
+        525496,
+        532793,
+        539787,
+        546613,
+        553386,
+        560212,
+        567206,
+        574503,
+        582279,
+        590792,
+        600467,
+        612118,
+        627734,
+        655837
+      ],
+      [
+        4441619,
+        4722653,
+        4878811,
+        4995321,
+        5092075,
+        5177209,
+        5254968,
+        5327934,
+        5397876,
+        5466138,
+        5533861,
+        5602123,
+        5672065,
+        5745031,
+        5822790,
+        5907924,
+        6004678,
+        6121188,
+        6277346,
+        6558380
+      ],
+      [
+        44416194,
+        47226530,
+        48788113,
+        49953217,
+        50920758,
+        51772095,
+        52549684,
+        53279347,
+        53978760,
+        54661383,
+        55338616,
+        56021239,
+        56720652,
+        57450315,
+        58227904,
+        59079241,
+        60046782,
+        61211886,
+        62773469,
+        65583805
+      ],
+      [
+        444161944,
+        472265300,
+        487881133,
+        499532178,
+        509207588,
+        517720953,
+        525496841,
+        532793474,
+        539787604,
+        546613833,
+        553386166,
+        560212395,
+        567206525,
+        574503158,
+        582279046,
+        590792411,
+        600467821,
+        612118866,
+        627734699,
+        655838055
+      ]
+    ],
+    "equal_slot_weights": true,
+    "grade_weight_denominator": 1000000000000,
+    "grade_weights": [
+      [
+        965000000000,
+        32000000000,
+        2900000000,
+        100000000,
+        0,
+        0,
+        0
+      ],
+      [
+        960000000000,
+        39000000000,
+        900000000,
+        90000000,
+        9000000,
+        900000,
+        100000
+      ],
+      [
+        650000000000,
+        345000000000,
+        4500000000,
+        450000000,
+        45000000,
+        4500000,
+        500000
+      ],
+      [
+        100000000000,
+        650000000000,
+        240000000000,
+        9000000000,
+        900000000,
+        90000000,
+        10000000
+      ],
+      [
+        0,
+        100000000000,
+        680000000000,
+        200000000000,
+        16000000000,
+        3000000000,
+        1000000000
+      ],
+      [
+        0,
+        0,
+        100000000000,
+        700000000000,
+        180000000000,
+        18000000000,
+        2000000000
+      ],
+      [
+        0,
+        0,
+        0,
+        100000000000,
+        690000000000,
+        180000000000,
+        30000000000
+      ]
+    ],
+    "draws_independent_with_replacement": true
+  },
+  "boxes": [
+    {
+      "tier": 0,
+      "price": 0,
+      "item_count": 1,
+      "ex_numerator_per_million": 10,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 1,
+      "price": 1200,
+      "item_count": 3,
+      "ex_numerator_per_million": 20,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 2,
+      "price": 1600,
+      "item_count": 4,
+      "ex_numerator_per_million": 50,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 3,
+      "price": 20000,
+      "item_count": 5,
+      "ex_numerator_per_million": 100,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 4,
+      "price": 350000,
+      "item_count": 6,
+      "ex_numerator_per_million": 300,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 5,
+      "price": 4500000,
+      "item_count": 7,
+      "ex_numerator_per_million": 1000,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 6,
+      "price": 55000000,
+      "item_count": 8,
+      "ex_numerator_per_million": 3000,
+      "minimum_cycle_seconds": 0
+    }
+  ],
+  "ex": {
+    "count": 1,
+    "values": [
+      27499999975
+    ],
+    "conditional_weights": [
+      1
+    ],
+    "replaces_item": true,
+    "independent_per_slot": true,
+    "pity": null
+  },
+  "newcomer": {
+    "per_save": true,
+    "phases": [
+      {
+        "paid_open_index_start": 1,
+        "paid_open_index_end": 200,
+        "shift_lowest_to_next": 0.08
+      },
+      {
+        "paid_open_index_start": 201,
+        "paid_open_index_end": 300,
+        "shift_lowest_to_next": 0.04
+      }
+    ],
+    "ex_boost": 0,
+    "sewer_boost": 0,
+    "paid_opens_count_on_committed_transaction": true,
+    "shift_from_grade_by_tier": [
+      1,
+      1,
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  "progression": {
+    "xp_per_open": [
+      1,
+      3,
+      6,
+      12,
+      24,
+      48,
+      80
+    ],
+    "paid_tier_unlock_total_xp": [
+      0,
+      60,
+      240,
+      800,
+      2400,
+      7200
+    ],
+    "one_time_unlock_grants": [
+      0,
+      18000,
+      180000,
+      2100000,
+      24000000,
+      270000000
+    ],
+    "xp_persists": true,
+    "requires_previous_tier_open_count": 0
+  },
+  "inventory": {
+    "capacity": null,
+    "stack_identical": true,
+    "duplicate_protection": false
+  },
+  "codex": {
+    "unlock_on": "drop_committed",
+    "persists_after_sale": true,
+    "discovery_cash_reward": 0,
+    "completion_cash_reward": 0
+  },
+  "simulation_assumptions": {
+    "normal_box_cycle_seconds": 6,
+    "sewer_cycle_seconds": 3,
+    "ex_excluded_from_progression_simulation": true,
+    "highest_affordable_unlocked_tier_policy": true
+  },
+  "recovery": {
+    "target_opens": 7,
+    "max_opens": 10,
+    "basis": "resale_net_profit",
+    "minimum_return": "previous_tier_entry_cost"
+  },
+  "previous_economy": {
+    "version": "singleplayer-economy-v1",
+    "box_prices": [
+      0,
+      1500,
+      6000,
+      60000,
+      700000,
+      8000000,
+      90000000
+    ]
+  },
+  "profitability": {
+    "guaranteed_profit_tiers": [
+      1,
+      2,
+      3
+    ],
+    "basis": "sell_all_drops",
+    "high_tier_minimum_win_probability": 0.75,
+    "minimum_net_by_tier": [
+      0,
+      132,
+      176,
+      2205,
+      0,
+      0,
+      0
+    ]
+  },
+  "balance_revision": "expanded-drop-range-v1"
+}

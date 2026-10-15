@@ -1,0 +1,232 @@
+{
+  "version": "singleplayer-economy-v2",
+  "date": "2026-10-14",
+  "basis": "sell all drops; current one item per ordinary grade",
+  "simulation_opens_per_tier": 20000,
+  "tiers": [
+    {
+      "tier": 0,
+      "name": "下水道",
+      "price": 0,
+      "count": 1,
+      "minimum_net": 444,
+      "standard_win_probability": 1,
+      "ordinary_expected_net": 743.7946000000001,
+      "ex_per_item": 0.00001,
+      "ex_per_box": 0.00000999999999995449,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 1
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 20000,
+        "losses": 0,
+        "min_net": 444,
+        "total_net": 14484152,
+        "mean_net": 724.2076
+      }
+    },
+    {
+      "tier": 1,
+      "name": "街角木箱",
+      "price": 1200,
+      "count": 3,
+      "minimum_net": 132,
+      "standard_win_probability": 1,
+      "ordinary_expected_net": 1211.2599599999999,
+      "ex_per_item": 0.00002,
+      "ex_per_box": 0.000059998800008065345,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 1
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 20000,
+        "losses": 0,
+        "min_net": 132,
+        "total_net": 24433058,
+        "mean_net": 1221.6529
+      }
+    },
+    {
+      "tier": 2,
+      "name": "旧城铁箱",
+      "price": 1600,
+      "count": 4,
+      "minimum_net": 176,
+      "standard_win_probability": 1,
+      "ordinary_expected_net": 9769.2664,
+      "ex_per_item": 0.00005,
+      "ex_per_box": 0.00019998500050000256,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 1
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 20000,
+        "losses": 0,
+        "min_net": 176,
+        "total_net": 610049549,
+        "mean_net": 30502.47745
+      }
+    },
+    {
+      "tier": 3,
+      "name": "秘境匣子",
+      "price": 20000,
+      "count": 5,
+      "minimum_net": 2205,
+      "standard_win_probability": 1,
+      "ordinary_expected_net": 132122.91,
+      "ex_per_item": 0.0001,
+      "ex_per_box": 0.0004999000099994433,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 1
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 1
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 20000,
+        "losses": 0,
+        "min_net": 2205,
+        "total_net": 2520935500,
+        "mean_net": 126046.775
+      }
+    },
+    {
+      "tier": 4,
+      "name": "失落宝箱",
+      "price": 350000,
+      "count": 6,
+      "minimum_net": -83504,
+      "standard_win_probability": 0.7752054546793865,
+      "ordinary_expected_net": 4281719.86,
+      "ex_per_item": 0.0003,
+      "ex_per_box": 0.001798650539878266,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 0.8825626094373662
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 0.8360888599162065
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 0.7752054546793865
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 15538,
+        "losses": 4462,
+        "min_net": -83504,
+        "total_net": 87220588371,
+        "mean_net": 4361029.41855
+      }
+    },
+    {
+      "tier": 5,
+      "name": "皇室珍藏",
+      "price": 4500000,
+      "count": 7,
+      "minimum_net": -1390866,
+      "standard_win_probability": 0.7917484097134964,
+      "ordinary_expected_net": 15398454.800000004,
+      "ex_per_item": 0.001,
+      "ex_per_box": 0.006979034965020947,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 0.9003939099458953
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 0.8545701475320996
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 0.7917484097134964
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 15800,
+        "losses": 4200,
+        "min_net": -1390866,
+        "total_net": 317578983863,
+        "mean_net": 15878949.19315
+      }
+    },
+    {
+      "tier": 6,
+      "name": "星界遗物",
+      "price": 55000000,
+      "count": 8,
+      "minimum_net": -19467048,
+      "standard_win_probability": 0.8362123459781973,
+      "ordinary_expected_net": 140431252,
+      "ex_per_item": 0.003,
+      "ex_per_box": 0.023749506343587634,
+      "phases": [
+        {
+          "paid_index": 1,
+          "win_probability": 0.9294947855407895
+        },
+        {
+          "paid_index": 201,
+          "win_probability": 0.8913399239290319
+        },
+        {
+          "paid_index": 301,
+          "win_probability": 0.8362123459781973
+        }
+      ],
+      "simulation_without_ex": {
+        "wins": 16679,
+        "losses": 3321,
+        "min_net": -19467048,
+        "total_net": 2815300794025,
+        "mean_net": 140765039.70125
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MusicLab 冲击揭示 · 试听预览</title>
+<style>
+:root{color-scheme:dark;font-family:"Microsoft YaHei",sans-serif;background:#091327;color:#edf3ff}*{box-sizing:border-box}body{margin:0;padding:40px 24px}main{max-width:980px;margin:auto}h1{font-size:28px;margin:0 0 14px}p{color:#aebed8;line-height:1.8}section{padding:24px;margin-top:24px;background:#12213a;border:1px solid #314360;border-radius:18px}h2{margin:0 0 10px}.steps{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}button{font:inherit;padding:12px 18px;border:1px solid #6e86ab;border-radius:10px;background:#263c5d;color:white;cursor:pointer}button:hover{background:#355580}button:disabled{opacity:.5;cursor:default}.primary{background:#905b16;border-color:#e7bc63}.ex .primary{background:#694491;border-color:#cfa1fa}.status{min-height:28px;color:#ffe6a0;margin-top:16px}.actions{display:flex;gap:12px;flex-wrap:wrap}.reference{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.note{font-size:13px}.active{box-shadow:0 0 0 2px #ffd264}button:focus-visible{outline:3px solid #96d9ff;outline-offset:4px}@media(max-width:560px){body{padding:24px 16px}section{padding:20px}h1{font-size:24px}.steps button{flex:1}}
+</style></head><body><main><h1>MusicLab 冲击揭示 · 试听预览</h1><p>MusicLab 全新 MIDI 编曲 · FluidSynth / GeneralUser GS 乐器渲染。每段开头由铜管合奏、定音鼓、钢琴八度重击、大鼓与管钟同时起奏；后续逐段加入镲片、小号与更宽的和弦。已移除全部弦乐、竖琴与钢片琴。EX 合唱和声在重击后进入。普通段主体 1 秒，EX 最后一段主体 2 秒；各段另有约 1.7～2.3 秒延音。此页仅用于试听，未接入游戏。</p>
+<section class="reference"><strong>普通六级 · 原音参考</strong><audio controls preload="metadata" src="./assets/audio/reveals/musiclab-arcade-grade-6.wav"></audio></section>
+<section data-kind="grade7" data-count="3"><h2>7 级 · 三段递进</h2><p>三段保持相同大和弦结构，每段均升高 3 个半音：C → E♭ → G♭。第二段加入镲片，第三段加入小号重音。</p><div class="steps"></div><div class="actions"><button class="primary" data-next>点击播放第 1 段</button><button data-auto>连续对比</button><button data-reset>停止 / 重置</button></div><div class="status" aria-live="polite">等待试听</div></section>
+<section class="ex" data-kind="ex" data-count="4"><h2>EX · 四段递进 + 和声</h2><p>四段保持相同的大和弦结构与音区排列，每段均升高 3 个半音：G → B♭ → D♭ → E。铜管与合唱层次继续递进。EX 四段已移除全部钟声。最后一段仅重击一次，铜管与和声持续延音至 2 秒，不重复演奏。</p><div class="steps"></div><div class="actions"><button class="primary" data-next>点击播放第 1 段</button><button data-auto>连续对比</button><button data-reset>停止 / 重置</button></div><div class="status" aria-live="polite">等待试听</div></section>
+<p class="note">逐段点击：主体播放期间暂不能推进（普通段 1 秒，EX 最后一段 2 秒）；随后可点击下一段，上一段尾音自然叠加。连续对比按各段主体时长触发。可用各段按钮单独比较。</p>
+</main><script type="module">
+const stops=[];
+for(const section of document.querySelectorAll('[data-kind]')){
+ const kind=section.dataset.kind,count=Number(section.dataset.count),next=section.querySelector('[data-next]'),status=section.querySelector('.status');
+ let index=0,locked=false,voices=[],timer,auto=false,generation=0;
+ const buttons=[];
+ function stop(){generation++;clearTimeout(timer);voices.forEach(a=>{a.pause();a.currentTime=0});voices=[];index=0;locked=false;auto=false;next.disabled=false;next.textContent='点击播放第 1 段';buttons.forEach(b=>b.classList.remove('active'));status.textContent='等待试听'}
+ stops.push(stop);
+ function play(stage){
+  if(locked)return;
+  locked=true;next.disabled=true;index=stage;
+  buttons.forEach((b,i)=>b.classList.toggle('active',i===stage-1));
+  const player=new Audio(`./assets/audio/reveals/musiclab-${kind}-step-${stage}-brass-v14.wav`);player.volume=.8;voices.push(player);
+  const token=generation;
+  status.textContent=`第 ${stage} / ${count} 段 · 主体播放中`;
+  player.play().then(()=>{
+   if(token!==generation){player.pause();return}
+   timer=setTimeout(()=>{
+    locked=false;next.disabled=false;
+    next.textContent=stage===count?'重新播放第 1 段':`点击播放第 ${stage+1} 段`;
+    status.textContent=stage===count?'全部段落完成 · 尾音自然衰减':`第 ${stage} 段主体结束 · 可点击继续`;
+    if(auto&&stage<count)play(stage+1);else auto=false;
+   },kind==='ex'&&stage===4?2000:1000);
+  }).catch(()=>{if(token!==generation)return;locked=false;auto=false;next.disabled=false;status.textContent='音频加载失败，请通过本地预览服务打开此页后重试。'});
+ }
+ for(let i=1;i<=count;i++){const b=document.createElement('button');b.textContent=`第 ${i} 段`;b.onclick=()=>{if(!locked){auto=false;play(i)}};section.querySelector('.steps').append(b);buttons.push(b)}
+ next.onclick=()=>{auto=false;play(index===count?1:index+1)};
+ section.querySelector('[data-auto]').onclick=()=>{stops.forEach(fn=>fn());auto=true;play(1)};
+ section.querySelector('[data-reset]').onclick=stop;
+}
+window.addEventListener('pagehide',()=>stops.forEach(fn=>fn()));
+</script></body></html>

@@ -1,0 +1,12 @@
+{
+  "name": "Wonderseeker · 异想寻宝家",
+  "short_name": "WS",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#111d23",
+  "theme_color": "#111d23",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}

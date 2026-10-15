@@ -1,0 +1,1 @@
+function e(){return typeof window<`u`&&window.__DF_STATIC__||`/`}function t(){return e()!==`/`}function n(t){let n=e();return n===`/`||!t.startsWith(`/`)?t:`${n}p/1436517bfa42${t}`}export{n,t};

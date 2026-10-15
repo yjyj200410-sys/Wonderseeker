@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wonderseeker · 主页按钮音效试听</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#142a37;color:#edf3ee;font:16px/1.6 system-ui,sans-serif}main{max-width:1050px;margin:auto;padding:40px 24px}h1{font-size:30px;margin:8px 0}p{color:#b7cbd3}a{color:#ead18c}.toolbar{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin:24px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#203b4b;border:1px solid #47616d;border-radius:14px;padding:20px}.card.selected{border-color:#edd082;box-shadow:inset 0 0 0 1px #edd082}h2{font-size:19px;margin:0}.card p{font-size:14px;min-height:45px}button{cursor:pointer;border:1px solid #7d939e;border-radius:8px;padding:10px 16px;color:#edf3ee;background:#345362;font:inherit}button:hover{filter:brightness(1.15)}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #ffe4a0;outline-offset:4px}.select{margin-left:8px;background:transparent}.stage{margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(#102532aa,#102532dd),url('./assets/home-ui/background-home-no-character.png') center/cover}.buttons{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0}.home-button{position:relative;width:180px;height:62px;background:url('./assets/home-ui/button-sidebar-blue.png') center/100% 100%;border:0;font-weight:700;text-shadow:0 2px 3px #162a36}.home-button.gold{background-image:url('./assets/home-ui/button-start-gold.png');color:#fff4d6}.home-button:active{transform:scale(.97)}#status{min-height:26px;color:#f1d795}small{color:#b7cbd3}@media(max-width:750px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.grid{grid-template-columns:1fr}main{padding:24px 16px}}
+</style>
+<main>
+<a href="./">← 返回游戏</a><h1>主页按钮 · 音效试听</h1>
+<p>01–06 为程序合成；07–15 使用本机 MusicLab 音色库制作；新加的咔哒声在 13–15 号。先听声音，再选一款在下方模拟按钮上试点。告诉我喜欢的编号，也可以说“更轻一点 / 更低沉 / 更有魔法感”。</p>
+<div class="toolbar"><label>试听音量 <input id="volume" type="range" min="0" max="100" value="60"> <output id="volume-label">60%</output></label><button id="stop">停止播放</button></div>
+<div class="grid" id="candidates"></div>
+<section class="stage"><h2>在主页按钮上试一试</h2><p id="selection"></p><div class="buttons"><button class="home-button">仓库</button><button class="home-button">图鉴</button><button class="home-button">收藏馆</button><button class="home-button gold">开始寻宝</button></div><small>这里只模拟按下反馈；选择保存在此浏览器的试听页中，确认后再接入游戏。</small></section>
+<p id="status" role="status" aria-live="polite">点击“试听”开始播放。</p>
+</main>
+<script type="module">
+const sounds=[['01-soft-pop','柔软气泡','轻轻的啵声，圆润、轻松。'],['02-wood-tap','木质轻扣','短促偏低，像木质按钮轻碰。'],['03-crystal','水晶轻响','清亮细小的叮声，尾音略长。'],['04-page-flick','纸页轻拂','带一点沙沙声，适合书页与图鉴。'],['05-magic-drop','魔法水滴','两个上行音，轻盈、有幻想感。'],['06-gold-click','金币轻碰','明亮的金属点击，适合金色按钮。']];
+sounds.push(['07-ml-marimba','MusicLab · 马林巴','07 · 温暖木质敲击，短而圆润。'],['08-ml-musicbox','MusicLab · 音乐盒','08 · 清脆小铃音，带童话感。'],['09-ml-nylon','MusicLab · 尼龙拨弦','09 · 柔和拨弦，轻巧自然。'],['10-ml-celeste','MusicLab · 钢片琴','10 · 两个上行铃音，适合寻宝。'],['11-ml-woodblock','MusicLab · 木鱼','11 · 极短木质敲击，干净利落。'],['12-ml-vibes','MusicLab · 颤音琴','12 · 圆润金属音，稍带余韵。']);
+sounds.push(['13-ml-light-click','MusicLab · 轻咔哒','短促轻巧，使用按键点击音色。'],['14-ml-solid-click','MusicLab · 厚实咔哒','偏低的响板音色，收紧尾音。'],['15-ml-double-click','MusicLab · 双段咔哒','咔—哒两段，模拟机械按钮反馈。']);
+let chosen=0;try{const saved=Number(localStorage.getItem('reta-button-preview'));if(Number.isInteger(saved)&&saved>=0&&saved<sounds.length)chosen=saved;}catch{}
+let current;
+const volume=document.querySelector('#volume'),status=document.querySelector('#status');
+function select(i){chosen=i;try{localStorage.setItem('reta-button-preview',String(i));}catch{}document.querySelectorAll('.card').forEach((card,n)=>{card.classList.toggle('selected',n===i);card.querySelector('.select').setAttribute('aria-pressed',String(n===i));});document.querySelector('#selection').textContent=`当前选择：${i+1} 号 · ${sounds[i][1]}`;}
+async function play(i){if(current){current.pause();current.currentTime=0;}const clip=new Audio(`./assets/audio/buttons/${sounds[i][0]}.wav`);current=clip;clip.volume=Number(volume.value)/100;try{await clip.play();status.textContent=`正在试听：${i+1} 号 · ${sounds[i][1]}`;}catch{status.textContent='播放失败，请检查浏览器声音权限或音频文件。';}}
+document.querySelector('#candidates').innerHTML=sounds.map((s,i)=>`<article class="card"><h2>${i+1 < 10?'0':''}${i+1} · ${s[1]}</h2><p>${s[2]}</p><button data-play="${i}" aria-label="试听${s[1]}">▶ 试听</button><button class="select" data-select="${i}" aria-pressed="false">选用试点</button></article>`).join('');
+document.querySelector('#candidates').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.play!==undefined)play(Number(b.dataset.play));else{select(Number(b.dataset.select));play(chosen);}});
+document.querySelectorAll('.home-button').forEach(b=>b.addEventListener('click',()=>play(chosen)));
+volume.addEventListener('input',()=>{document.querySelector('#volume-label').value=volume.value+'%';if(current)current.volume=Number(volume.value)/100;});
+document.querySelector('#stop').addEventListener('click',()=>{if(current){current.pause();current.currentTime=0;}status.textContent='已停止播放。';});
+select(chosen);
+</script>
+</html>

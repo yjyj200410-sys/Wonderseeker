@@ -1,0 +1,376 @@
+{
+  "version": "singleplayer-economy-v1",
+  "date": "2026-10-13",
+  "mode": "offline_singleplayer",
+  "currency": {
+    "integer": true,
+    "starting_balance": 3000,
+    "sale_fee": 0,
+    "sale_multiplier": 1
+  },
+  "ordinary": {
+    "grade_count": 7,
+    "value_slots_per_grade": 20,
+    "value_slots": [
+      [
+        444,
+        472,
+        487,
+        499,
+        509,
+        517,
+        525,
+        532,
+        539,
+        546,
+        553,
+        560,
+        567,
+        574,
+        582,
+        590,
+        600,
+        612,
+        627,
+        655
+      ],
+      [
+        4441,
+        4722,
+        4878,
+        4995,
+        5092,
+        5177,
+        5254,
+        5327,
+        5397,
+        5466,
+        5533,
+        5602,
+        5672,
+        5745,
+        5822,
+        5907,
+        6004,
+        6121,
+        6277,
+        6558
+      ],
+      [
+        44416,
+        47226,
+        48788,
+        49953,
+        50920,
+        51772,
+        52549,
+        53279,
+        53978,
+        54661,
+        55338,
+        56021,
+        56720,
+        57450,
+        58227,
+        59079,
+        60046,
+        61211,
+        62773,
+        65583
+      ],
+      [
+        444162,
+        472265,
+        487881,
+        499532,
+        509207,
+        517720,
+        525496,
+        532793,
+        539787,
+        546613,
+        553386,
+        560212,
+        567206,
+        574503,
+        582279,
+        590792,
+        600467,
+        612118,
+        627734,
+        655837
+      ],
+      [
+        4441619,
+        4722653,
+        4878811,
+        4995321,
+        5092075,
+        5177209,
+        5254968,
+        5327934,
+        5397876,
+        5466138,
+        5533861,
+        5602123,
+        5672065,
+        5745031,
+        5822790,
+        5907924,
+        6004678,
+        6121188,
+        6277346,
+        6558380
+      ],
+      [
+        44416194,
+        47226530,
+        48788113,
+        49953217,
+        50920758,
+        51772095,
+        52549684,
+        53279347,
+        53978760,
+        54661383,
+        55338616,
+        56021239,
+        56720652,
+        57450315,
+        58227904,
+        59079241,
+        60046782,
+        61211886,
+        62773469,
+        65583805
+      ],
+      [
+        444161944,
+        472265300,
+        487881133,
+        499532178,
+        509207588,
+        517720953,
+        525496841,
+        532793474,
+        539787604,
+        546613833,
+        553386166,
+        560212395,
+        567206525,
+        574503158,
+        582279046,
+        590792411,
+        600467821,
+        612118866,
+        627734699,
+        655838055
+      ]
+    ],
+    "equal_slot_weights": true,
+    "grade_weight_denominator": 1000000000000,
+    "grade_weights": [
+      [
+        965000000000,
+        32000000000,
+        2900000000,
+        100000000,
+        0,
+        0,
+        0
+      ],
+      [
+        995000000000,
+        4990000000,
+        9000000,
+        900000,
+        90000,
+        9000,
+        1000
+      ],
+      [
+        670000000000,
+        329660000000,
+        330000000,
+        9000000,
+        900000,
+        90000,
+        10000
+      ],
+      [
+        0,
+        810000000000,
+        189800000000,
+        190000000,
+        9000000,
+        900000,
+        100000
+      ],
+      [
+        0,
+        0,
+        891000000000,
+        108800000000,
+        190000000,
+        9000000,
+        1000000
+      ],
+      [
+        0,
+        0,
+        0,
+        935621471405,
+        63133798834,
+        1000000000,
+        244729761
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        954333019256,
+        41344788919,
+        4322191825
+      ]
+    ],
+    "draws_independent_with_replacement": true
+  },
+  "boxes": [
+    {
+      "tier": 0,
+      "price": 0,
+      "item_count": 1,
+      "ex_numerator_per_million": 10,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 1,
+      "price": 1500,
+      "item_count": 3,
+      "ex_numerator_per_million": 20,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 2,
+      "price": 6000,
+      "item_count": 4,
+      "ex_numerator_per_million": 22,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 3,
+      "price": 60000,
+      "item_count": 5,
+      "ex_numerator_per_million": 24,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 4,
+      "price": 700000,
+      "item_count": 6,
+      "ex_numerator_per_million": 26,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 5,
+      "price": 8000000,
+      "item_count": 7,
+      "ex_numerator_per_million": 28,
+      "minimum_cycle_seconds": 0
+    },
+    {
+      "tier": 6,
+      "price": 90000000,
+      "item_count": 8,
+      "ex_numerator_per_million": 30,
+      "minimum_cycle_seconds": 0
+    }
+  ],
+  "ex": {
+    "count": 3,
+    "values": [
+      27499999975,
+      27499999975,
+      27499999975
+    ],
+    "conditional_weights": [
+      2,
+      2,
+      1
+    ],
+    "replaces_item": true,
+    "independent_per_slot": true,
+    "pity": null
+  },
+  "newcomer": {
+    "per_save": true,
+    "phases": [
+      {
+        "paid_open_index_start": 1,
+        "paid_open_index_end": 200,
+        "shift_lowest_to_next": 0.08
+      },
+      {
+        "paid_open_index_start": 201,
+        "paid_open_index_end": 300,
+        "shift_lowest_to_next": 0.04
+      }
+    ],
+    "ex_boost": 0,
+    "sewer_boost": 0,
+    "paid_opens_count_on_committed_transaction": true
+  },
+  "progression": {
+    "xp_per_open": [
+      1,
+      3,
+      6,
+      12,
+      24,
+      48,
+      80
+    ],
+    "paid_tier_unlock_total_xp": [
+      0,
+      60,
+      240,
+      800,
+      2400,
+      7200
+    ],
+    "one_time_unlock_grants": [
+      0,
+      18000,
+      180000,
+      2100000,
+      24000000,
+      270000000
+    ],
+    "xp_persists": true,
+    "requires_previous_tier_open_count": 0
+  },
+  "inventory": {
+    "capacity": null,
+    "stack_identical": true,
+    "duplicate_protection": false
+  },
+  "codex": {
+    "unlock_on": "drop_committed",
+    "persists_after_sale": true,
+    "discovery_cash_reward": 0,
+    "completion_cash_reward": 0
+  },
+  "simulation_assumptions": {
+    "normal_box_cycle_seconds": 6,
+    "sewer_cycle_seconds": 3,
+    "ex_excluded_from_progression_simulation": true,
+    "highest_affordable_unlocked_tier_policy": true
+  },
+  "recovery": {
+    "target_opens": 7,
+    "max_opens": 10,
+    "basis": "resale_net_profit",
+    "minimum_return": "previous_tier_entry_cost"
+  }
+}

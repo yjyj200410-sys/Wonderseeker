@@ -1,0 +1,1 @@
+function e(e){return`${Math.floor(e/60)}:${(e%60).toString().padStart(2,`0`)}`}function t(e){return e.replace(/^ammo/,``)}export{e as n,t};

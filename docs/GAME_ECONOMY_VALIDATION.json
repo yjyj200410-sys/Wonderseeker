@@ -1,0 +1,528 @@
+{
+  "economy": [
+    {
+      "tier": 0,
+      "price": 0,
+      "count": 1,
+      "ordinary_probabilities": [
+        0.965,
+        0.032,
+        0.0029,
+        0.0001,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ex_per_item": 1e-05,
+      "standard": {
+        "ordinary_expected": 920.75,
+        "full_expected": 275920.7405425,
+        "ordinary_rtp": null,
+        "full_rtp": null,
+        "ordinary_loss": 0,
+        "final_loss": 0.0,
+        "loss_95ci_halfwidth": 0.0,
+        "ordinary_p10": 487.0,
+        "ordinary_median": 553.0,
+        "ordinary_p90": 627.0,
+        "loss_conditional_median_return": null
+      },
+      "newcomer_1": {
+        "ordinary_expected": 920.75,
+        "full_expected": 275920.7405425,
+        "ordinary_rtp": null,
+        "full_rtp": null,
+        "ordinary_loss": 0,
+        "final_loss": 0.0,
+        "loss_95ci_halfwidth": 0.0,
+        "ordinary_p10": 487.0,
+        "ordinary_median": 553.0,
+        "ordinary_p90": 627.0,
+        "loss_conditional_median_return": null
+      },
+      "newcomer_2": {
+        "ordinary_expected": 920.75,
+        "full_expected": 275920.7405425,
+        "ordinary_rtp": null,
+        "full_rtp": null,
+        "ordinary_loss": 0,
+        "final_loss": 0.0,
+        "loss_95ci_halfwidth": 0.0,
+        "ordinary_p10": 487.0,
+        "ordinary_median": 553.0,
+        "ordinary_p90": 627.0,
+        "loss_conditional_median_return": null
+      }
+    },
+    {
+      "tier": 1,
+      "price": 1500,
+      "count": 3,
+      "ordinary_probabilities": [
+        0.995,
+        0.00499,
+        9e-06,
+        9e-07,
+        9e-08,
+        9e-09,
+        1e-09
+      ],
+      "ex_per_item": 2e-05,
+      "standard": {
+        "ordinary_expected": 1730.1749999999997,
+        "full_expected": 1651730.1388965002,
+        "ordinary_rtp": 1.1534499999999999,
+        "full_rtp": 1101.1534259310001,
+        "ordinary_loss": 0.050367,
+        "final_loss": 0.050363978040439995,
+        "loss_95ci_halfwidth": 0.0004286541298748183,
+        "ordinary_p10": 1533.0,
+        "ordinary_median": 1651.0,
+        "ordinary_p90": 1773.0,
+        "loss_conditional_median_return": 0.982
+      },
+      "newcomer_1": {
+        "ordinary_expected": 2918.175,
+        "full_expected": 1652918.1151365002,
+        "ordinary_rtp": 1.9454500000000001,
+        "full_rtp": 1101.9454100910002,
+        "ordinary_loss": 0.038926,
+        "final_loss": 0.03892366448671089,
+        "loss_95ci_halfwidth": 0.0003791005152708163,
+        "ordinary_p10": 1544.0,
+        "ordinary_median": 1685.0,
+        "ordinary_p90": 6774.0,
+        "loss_conditional_median_return": 0.982
+      },
+      "newcomer_2": {
+        "ordinary_expected": 2324.1749999999997,
+        "full_expected": 1652324.1270165,
+        "ordinary_rtp": 1.5494499999999998,
+        "full_rtp": 1101.5494180110002,
+        "ordinary_loss": 0.044621,
+        "final_loss": 0.04461832279354484,
+        "loss_95ci_halfwidth": 0.00040468170055580027,
+        "ordinary_p10": 1539.0,
+        "ordinary_median": 1666.0,
+        "ordinary_p90": 6197.0,
+        "loss_conditional_median_return": 0.982
+      }
+    },
+    {
+      "tier": 2,
+      "price": 6000,
+      "count": 4,
+      "ordinary_probabilities": [
+        0.67,
+        0.32966,
+        0.00033,
+        9e-06,
+        9e-07,
+        9e-08,
+        1e-08
+      ],
+      "ex_per_item": 2.2e-05,
+      "standard": {
+        "ordinary_expected": 8878.52,
+        "full_expected": 2428878.32247256,
+        "ordinary_rtp": 1.4797533333333335,
+        "full_rtp": 404.8130537454267,
+        "ordinary_loss": 0.205416,
+        "final_loss": 0.20539792398851933,
+        "loss_95ci_halfwidth": 0.0007918503504400755,
+        "ordinary_p10": 2198.0,
+        "ordinary_median": 7520.0,
+        "ordinary_p90": 15857.0,
+        "loss_conditional_median_return": 0.36666666666666664
+      },
+      "newcomer_1": {
+        "ordinary_expected": 10462.52,
+        "full_expected": 2430462.28762456,
+        "ordinary_rtp": 1.7437533333333335,
+        "full_rtp": 405.07704793742664,
+        "ordinary_loss": 0.123909,
+        "final_loss": 0.12389809636782648,
+        "loss_95ci_halfwidth": 0.0006457763066391569,
+        "ordinary_p10": 2296.0,
+        "ordinary_median": 11223.0,
+        "ordinary_p90": 17201.0,
+        "loss_conditional_median_return": 0.3665
+      },
+      "newcomer_2": {
+        "ordinary_expected": 9670.52,
+        "full_expected": 2429670.30504856,
+        "ordinary_rtp": 1.6117533333333334,
+        "full_rtp": 404.9450508414266,
+        "ordinary_loss": 0.160994,
+        "final_loss": 0.16097983299551974,
+        "loss_95ci_halfwidth": 0.0007203498168479689,
+        "ordinary_p10": 2234.0,
+        "ordinary_median": 7943.0,
+        "ordinary_p90": 16744.0,
+        "loss_conditional_median_return": 0.36666666666666664
+      }
+    },
+    {
+      "tier": 3,
+      "price": 60000,
+      "count": 5,
+      "ordinary_probabilities": [
+        0.0,
+        0.81,
+        0.1898,
+        0.00019,
+        9e-06,
+        9e-07,
+        1e-07
+      ],
+      "ex_per_item": 2.4e-05,
+      "standard": {
+        "ordinary_expected": 75760.00000000001,
+        "full_expected": 3375758.1787599996,
+        "ordinary_rtp": 1.2626666666666668,
+        "full_rtp": 56.26263631266666,
+        "ordinary_loss": 0.347754,
+        "final_loss": 0.3477122715230149,
+        "loss_95ci_halfwidth": 0.000933464595422523,
+        "ordinary_p10": 26830.0,
+        "ordinary_median": 75207.0,
+        "ordinary_p90": 131560.0,
+        "loss_conditional_median_return": 0.4582
+      },
+      "newcomer_1": {
+        "ordinary_expected": 95560.0,
+        "full_expected": 3395557.70356,
+        "ordinary_rtp": 1.5926666666666667,
+        "full_rtp": 56.59262839266666,
+        "ordinary_loss": 0.207922,
+        "final_loss": 0.20789705055760196,
+        "loss_95ci_halfwidth": 0.0007954085753023446,
+        "ordinary_p10": 27444.0,
+        "ordinary_median": 80940.0,
+        "ordinary_p90": 169792.09999999998,
+        "loss_conditional_median_return": 0.45835
+      },
+      "newcomer_2": {
+        "ordinary_expected": 85659.99999999999,
+        "full_expected": 3385657.94116,
+        "ordinary_rtp": 1.4276666666666664,
+        "full_rtp": 56.42763235266666,
+        "ordinary_loss": 0.270502,
+        "final_loss": 0.2704695413180541,
+        "loss_95ci_halfwidth": 0.0008706695665827729,
+        "ordinary_p10": 27101.0,
+        "ordinary_median": 77942.0,
+        "ordinary_p90": 137868.0,
+        "loss_conditional_median_return": 0.4582333333333333
+      }
+    },
+    {
+      "tier": 4,
+      "price": 700000,
+      "count": 6,
+      "ordinary_probabilities": [
+        0.0,
+        0.0,
+        0.891,
+        0.1088,
+        0.00019,
+        9e-06,
+        1e-06
+      ],
+      "ex_per_item": 2.6e-05,
+      "standard": {
+        "ordinary_expected": 665607.0,
+        "full_expected": 4955589.690318,
+        "ordinary_rtp": 0.9508671428571429,
+        "full_rtp": 7.0794138433114275,
+        "ordinary_loss": 0.501307,
+        "final_loss": 0.5012288011910768,
+        "loss_95ci_halfwidth": 0.0009799966518262405,
+        "ordinary_p10": 319095.0,
+        "ordinary_median": 369640.0,
+        "ordinary_p90": 1278577.0,
+        "loss_conditional_median_return": 0.47142428571428574
+      },
+      "newcomer_1": {
+        "ordinary_expected": 903207.0,
+        "full_expected": 5193183.5127179995,
+        "ordinary_rtp": 1.2902957142857143,
+        "full_rtp": 7.418833589597142,
+        "ordinary_loss": 0.285785,
+        "final_loss": 0.2857404204377595,
+        "loss_95ci_halfwidth": 0.0008855034753122317,
+        "ordinary_p10": 325043.0,
+        "ordinary_median": 830760.5,
+        "ordinary_p90": 1439254.0,
+        "loss_conditional_median_return": 0.47149857142857143
+      },
+      "newcomer_2": {
+        "ordinary_expected": 784406.9999999999,
+        "full_expected": 5074386.601518,
+        "ordinary_rtp": 1.1205814285714284,
+        "full_rtp": 7.249123716454285,
+        "ordinary_loss": 0.380502,
+        "final_loss": 0.3804426455461566,
+        "loss_95ci_halfwidth": 0.0009516001407468547,
+        "ordinary_p10": 321818.0,
+        "ordinary_median": 796361.0,
+        "ordinary_p90": 1360528.4,
+        "loss_conditional_median_return": 0.4714714285714286
+      }
+    },
+    {
+      "tier": 5,
+      "price": 8000000,
+      "count": 7,
+      "ordinary_probabilities": [
+        0.0,
+        0.0,
+        0.0,
+        0.935621471405,
+        0.063133798834,
+        0.001,
+        0.000244729761
+      ],
+      "ex_per_item": 2.8e-05,
+      "standard": {
+        "ordinary_expected": 7359999.99986825,
+        "full_expected": 12749793.914968254,
+        "ordinary_rtp": 0.9199999999835313,
+        "full_rtp": 1.5937242393710318,
+        "ordinary_loss": 0.650129,
+        "final_loss": 0.6500015854192241,
+        "loss_95ci_halfwidth": 0.0009347808653111886,
+        "ordinary_p10": 3711441.0,
+        "ordinary_median": 3965505.5,
+        "ordinary_p90": 9581032.1,
+        "loss_conditional_median_return": 0.48201
+      },
+      "newcomer_1": {
+        "ordinary_expected": 10131999.99986825,
+        "full_expected": 15521716.298968254,
+        "ordinary_rtp": 1.2664999999835311,
+        "full_rtp": 1.9402145373710318,
+        "ordinary_loss": 0.365369,
+        "final_loss": 0.36529739369115444,
+        "loss_95ci_halfwidth": 0.0009438056238081559,
+        "ordinary_p10": 3775585.0,
+        "ordinary_median": 8684537.0,
+        "ordinary_p90": 14597141.1,
+        "loss_conditional_median_return": 0.483220875
+      },
+      "newcomer_2": {
+        "ordinary_expected": 8745999.999868248,
+        "full_expected": 14135755.106968252,
+        "ordinary_rtp": 1.093249999983531,
+        "full_rtp": 1.7669693883710316,
+        "ordinary_loss": 0.48985,
+        "final_loss": 0.4897539974645139,
+        "loss_95ci_halfwidth": 0.000979798055092987,
+        "ordinary_p10": 3740846.0,
+        "ordinary_median": 8097212.0,
+        "ordinary_p90": 13760893.0,
+        "loss_conditional_median_return": 0.4825979375
+      }
+    },
+    {
+      "tier": 6,
+      "price": 90000000,
+      "count": 8,
+      "ordinary_probabilities": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.954333019256,
+        0.041344788919,
+        0.004322191825
+      ],
+      "ex_per_item": 3e-05,
+      "standard": {
+        "ordinary_expected": 79200000.001624,
+        "full_expected": 85797623.99562396,
+        "ordinary_rtp": 0.8800000000180445,
+        "full_rtp": 0.9533069332847107,
+        "ordinary_loss": 0.75141,
+        "final_loss": 0.7512296805343961,
+        "loss_95ci_halfwidth": 0.000847103319858351,
+        "ordinary_p10": 42430911.0,
+        "ordinary_median": 44894708.0,
+        "ordinary_p90": 100261876.39999999,
+        "loss_conditional_median_return": 0.4907989555555556
+      },
+      "newcomer_1": {
+        "ordinary_expected": 110880000.00162399,
+        "full_expected": 117476673.59562394,
+        "ordinary_rtp": 1.2320000000180442,
+        "full_rtp": 1.3052963732847105,
+        "ordinary_loss": 0.442404,
+        "final_loss": 0.442297834187912,
+        "loss_95ci_halfwidth": 0.0009734763804694054,
+        "ordinary_p10": 43192002.0,
+        "ordinary_median": 92340810.0,
+        "ordinary_p90": 157476067.4,
+        "loss_conditional_median_return": 0.49519274444444444
+      },
+      "newcomer_2": {
+        "ordinary_expected": 95040000.00162399,
+        "full_expected": 101637148.79562394,
+        "ordinary_rtp": 1.0560000000180443,
+        "full_rtp": 1.1293016532847104,
+        "ordinary_loss": 0.580491,
+        "final_loss": 0.5803516967874957,
+        "loss_95ci_halfwidth": 0.0009672181955315099,
+        "ordinary_p10": 42766526.0,
+        "ordinary_median": 83270374.5,
+        "ordinary_p90": 144794259.4,
+        "loss_conditional_median_return": 0.49283027777777777
+      }
+    }
+  ],
+  "progression": [
+    {
+      "sell_value_fraction": 1.0,
+      "players": 5000,
+      "steps_run": 418,
+      "milestones": [
+        {
+          "tier": 2,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ]
+        },
+        {
+          "tier": 3,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            5.0,
+            5.0,
+            5.0,
+            5.0
+          ]
+        },
+        {
+          "tier": 4,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            9.7,
+            9.7,
+            9.7,
+            9.7
+          ]
+        },
+        {
+          "tier": 5,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            16.4,
+            16.4,
+            16.4,
+            16.4
+          ]
+        },
+        {
+          "tier": 6,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            26.4,
+            26.4,
+            28.7,
+            33.1
+          ]
+        }
+      ],
+      "paid_opens_p50_p90": [
+        264.0,
+        287.0
+      ],
+      "sewer_opens_p50_p90": [
+        0.0,
+        0.0
+      ],
+      "final_wallet_p10_p50_p90": [
+        275811085.1,
+        349744963.5,
+        858726954.5000005
+      ]
+    },
+    {
+      "sell_value_fraction": 0.8,
+      "players": 5000,
+      "steps_run": 1267,
+      "milestones": [
+        {
+          "tier": 2,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            2.0,
+            2.0,
+            2.0,
+            2.1
+          ]
+        },
+        {
+          "tier": 3,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            5.0,
+            5.0,
+            5.0,
+            5.1
+          ]
+        },
+        {
+          "tier": 4,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            9.7,
+            9.7,
+            9.7,
+            9.8
+          ]
+        },
+        {
+          "tier": 5,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            16.4,
+            16.4,
+            19.0,
+            21.0
+          ]
+        },
+        {
+          "tier": 6,
+          "completion_rate": 1.0,
+          "minutes_p10_p50_p90_p99": [
+            31.645,
+            44.4,
+            55.8,
+            69.6
+          ]
+        }
+      ],
+      "paid_opens_p50_p90": [
+        444.0,
+        557.0
+      ],
+      "sewer_opens_p50_p90": [
+        0.0,
+        1.0
+      ],
+      "final_wallet_p10_p50_p90": [
+        270033213.1,
+        270261706.0,
+        270731544.2
+      ]
+    }
+  ],
+  "sample_size_per_tier_phase": 1000000,
+  "seed_economy_base": 20261013,
+  "seed_progression": 9813,
+  "ex_collection_box_expectation": 26736.548611252063
+}

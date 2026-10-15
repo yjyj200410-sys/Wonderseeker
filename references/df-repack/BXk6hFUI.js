@@ -1,0 +1,1 @@
+import{p as e}from"./BsAUap0-.js";import{h as t}from"./DH_TcroW.js";import{t as n}from"./BDUEa-bw.js";import{t as r}from"./CZZwdwbq.js";var i=e();function a(){return t?(0,i.jsx)(n,{mode:`game`}):(0,i.jsx)(r,{})}export{a as component};

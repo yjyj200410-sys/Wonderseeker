@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#111d23">
+  <meta name="description" content="Wonderseeker 异想寻宝家：一款简单多边形风格的单机开箱收藏游戏，探索、发现，建立自己的珍藏。">
+  <title>Wonderseeker · 异想寻宝家</title>
+  <link rel="icon" href="./assets/home-ui/icon-compass.png" type="image/png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./special-reveal.css">
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;pointer-events:none"><defs><filter id="ex-outline-wave" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".012 .035" numOctaves="2" seed="7" result="wave"><animate attributeName="baseFrequency" values=".012 .035;.018 .025;.012 .035" dur="8s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="wave" scale="10" xChannelSelector="R" yChannelSelector="G"/></filter></defs></svg>
+  <div id="app"><div class="loading">Wonderseeker <span>正在打开收藏所…</span></div></div>
+  <div id="modal-root"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./mobile-display.js"></script>
+  <script type="module" src="./page-interactions.js"></script>
+  <script type="module" src="./background-slideshow.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

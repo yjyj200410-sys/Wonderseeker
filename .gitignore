@@ -1,0 +1,12 @@
+node_modules/
+artifacts/
+.sites-runtime/
+audio-sources/
+output/
+__pycache__/
+*.pyc
+*.tar.gz
+*.log
+.env
+.env.*
+!.env.example

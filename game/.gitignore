@@ -1,0 +1,9 @@
+node_modules/
+artifacts/
+*.tar.gz
+*.log
+
+# Local generation intermediates and deployment tooling
+.sites-runtime/
+audio-sources/
+output/

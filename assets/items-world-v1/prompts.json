@@ -1,0 +1,180 @@
+[
+  {
+    "slug": "tin-frog",
+    "name": "铁皮青蛙",
+    "grade": 1,
+    "file": "world-1-tin-frog-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Create ONE transparent square Wonderseeker inventory sprite of a real vintage tin jumping frog. Image 1 is the authoritative OBJECT reference: faithfully preserve its low flattened elongated stamped tin shell, narrow snout, SMALL printed eyes on shallow raised bumps, cream underside, green lithographed skin with simplified cream stripes and red spots, pressed leg shapes on sides, thin flat metal hopping feet beneath body, tiny silver winding tab. Side/three-quarter view facing upper left like reference. Image 2 is STYLE ONLY: thick dark navy outer contour, crisp broad faceted cel shading, warm upper-left light, simplified hand-painted game collectible. Preserve realistic vintage toy proportions; NO oversized eyeballs, NO cartoon smile, NO articulated bulky frog legs, NO gold ornate key. Center entire single frog in 78% of square with transparent margin, readable at 64px. No box, text, floor, shadow, aura or extra objects. Actual transparent background."
+  },
+  {
+    "slug": "old-keys",
+    "name": "旧钥匙串",
+    "grade": 1,
+    "file": "world-1-old-keys-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Wonderseeker inventory sprite: Three worn iron and brass house keys attached to one simple rusty keyring. Match reference illustration style exactly: thick dark navy contours, chunky proportions, crisp broad faceted cel shading, warm upper-left light, three-quarter view. Single complete centered object, 78% square canvas with generous transparent margins. Actual transparent background. No text, floor, shadow, aura, particles or frame."
+  },
+  {
+    "slug": "wood-plane",
+    "name": "木工刨子",
+    "grade": 1,
+    "file": "world-1-wood-plane-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Wonderseeker inventory sprite: Traditional wooden carpenter hand plane, honey wood rectangular body, dark iron blade, cross handle. Match reference illustration style exactly: thick dark navy contours, chunky proportions, crisp broad faceted cel shading, warm upper-left light, three-quarter view. Single complete centered object, 78% square canvas with generous transparent margins. Actual transparent background. No text, floor, shadow, aura, particles or frame.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-427c7652-eb43-4679-b3ba-d7f1379449dc.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "sewing-box",
+    "name": "缝纫盒",
+    "grade": 2,
+    "file": "world-2-sewing-box-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "ONE isolated Wonderseeker fantasy collectible game sprite: Open small wooden sewing box containing chunky thread spools, folded cloth, scissors and pincushion; one cohesive object. Thick very dark navy outlines, chunky exaggerated proportions, broad polygonal painted facets and crisp simplified cel shading, bright warm upper-left illumination. Rich tactile cartoon style, three-quarter view, coherent geometry. Center entire object within 75% square canvas with generous margins, readable at 64px. Genuine transparent background. No text, digits, frame, scene, ground, cast shadow, external glow or particles.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-1b318571-a391-43bd-a7c3-0113adff46e5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "patched-doll",
+    "name": "修补过的布偶",
+    "grade": 2,
+    "file": "world-2-patched-doll-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Single isolated cartoon game inventory item: Small seated brown cloth teddy bear, mismatched button eyes, cream stitched patch, floppy limbs, lovingly repaired. Wonderseeker style: bold deep navy contour, chunky proportions, broad angular cel-shaded color planes, warm light from upper left, three-quarter view. Entire centered object, generous margins, transparent background. No text, background, shadow, aura, frame or extras.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-8621c621-d542-4c8f-acbc-ba7616b62fe6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "wax-seal",
+    "name": "封蜡印章",
+    "grade": 2,
+    "file": "world-2-wax-seal-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Single isolated cartoon game inventory item: One antique wax seal stamp lying diagonally, turned walnut handle and round engraved brass seal face visible. Wonderseeker style: bold deep navy contour, chunky proportions, broad angular cel-shaded color planes, warm light from upper left, three-quarter view. Entire centered object, generous margins, transparent background. No text, background, shadow, aura, frame or extras.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-3bec1155-d186-4699-89be-6760e5eb76a9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "pocket-watch",
+    "name": "机械怀表",
+    "grade": 3,
+    "file": "world-3-pocket-watch-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "ONE isolated Wonderseeker fantasy collectible game sprite: Round brass mechanical pocket watch open cover, cream dial with simple hour ticks no numbers, short attached chain. Thick very dark navy outlines, chunky exaggerated proportions, broad polygonal painted facets and crisp simplified cel shading, bright warm upper-left illumination. Rich tactile cartoon style, three-quarter view, coherent geometry. Center entire object within 75% square canvas with generous margins, readable at 64px. Genuine transparent background. No text, digits, frame, scene, ground, cast shadow, external glow or particles.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-fbcee551-1e00-41fa-9764-81c69118c039.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "music-box",
+    "name": "发条音乐盒",
+    "grade": 3,
+    "file": "world-3-music-box-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Wonderseeker inventory sprite: Open modest walnut wind-up music box showing brass pinned cylinder and metal comb, small side winding key, no bird. Match reference illustration style exactly: thick dark navy contours, chunky proportions, crisp broad faceted cel shading, warm upper-left light, three-quarter view. Single complete centered object, 78% square canvas with generous transparent margins. Actual transparent background. No text, floor, shadow, aura, particles or frame.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-8b88def3-ddeb-4fc6-9b8a-c573ae1fa5b9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "sextant",
+    "name": "航海六分仪",
+    "grade": 3,
+    "file": "world-3-sextant-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Wonderseeker game collectible sprite. Antique brass nautical sextant, recognizable triangular arc graduated rim, small telescope and walnut grip. Match reference's thick dark navy outlines, chunky silhouette, broad faceted cel shading, warm top-left lighting, three-quarter view. ONE whole centered object on actual transparent background, generous margins. No text, floor, cast shadow, external glow, frame or scene.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-2543bf89-7c3e-418d-9933-f613bb7c5cdf.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "tiger-tally",
+    "name": "虎符",
+    "grade": 4,
+    "file": "world-4-tiger-tally-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Wonderseeker inventory sprite: Ancient Chinese bronze tiger military tally, low crouching tiger elongated body, small head, curled tail, seam dividing two halves, green patina, no writing. Match reference illustration style exactly: thick dark navy contours, chunky proportions, crisp broad faceted cel shading, warm upper-left light, three-quarter view. Single complete centered object, 78% square canvas with generous transparent margins. Actual transparent background. No text, floor, shadow, aura, particles or frame.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-5f536c6e-bcab-49cb-a8dc-7c2a5492d556.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "insect-amber",
+    "name": "昆虫琥珀",
+    "grade": 4,
+    "file": "world-4-insect-amber-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Wonderseeker inventory sprite: Single irregular polished golden amber nugget containing one clearly visible tiny dark prehistoric insect. Match reference illustration style exactly: thick dark navy contours, chunky proportions, crisp broad faceted cel shading, warm upper-left light, three-quarter view. Single complete centered object, 78% square canvas with generous transparent margins. Actual transparent background. No text, floor, shadow, aura, particles or frame.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-3d667a59-2274-4c68-b3ad-3775fed21141.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "magic-beans",
+    "name": "魔豆",
+    "grade": 5,
+    "file": "world-5-magic-beans-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "One small cluster of THREE magical green beans, one bean has a short curled sprout. Single isolated fantasy inventory item, no pot or soil. Chunky cartoon collectible, thick very dark navy outline, rich emerald green, broad faceted cel shading, warm upper-left light, three-quarter view. Entire cluster centered inside 75% of square canvas with clear transparent margins. Actual transparent background. No lettering, scene, floor, shadow, glow or particles.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-92c7888c-0a3a-4f71-aecb-ba706ce843e9.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "magic-mirror",
+    "name": "魔镜",
+    "grade": 5,
+    "file": "world-5-magic-mirror-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Wonderseeker game collectible sprite. Standing oval enchanted mirror, carved dark purple and antique gold frame, silver blue reflective glass with subtle mysterious face within glass, compact pedestal. Match reference's thick dark navy outlines, chunky silhouette, broad faceted cel shading, warm top-left lighting, three-quarter view. ONE whole centered object on actual transparent background, generous margins. No text, floor, cast shadow, external glow, frame or scene.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-0bca5397-80ee-4d7e-beb4-6ab97d433008.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "red-thread",
+    "name": "月老红线",
+    "grade": 6,
+    "file": "world-6-red-thread-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "ONE Wonderseeker collectible game sprite: One vivid crimson silk cord loosely wound into a compact loop with a traditional Chinese knotted center and two short red tassels, no stand. Thick very dark navy outlines, chunky stylized proportions, broad polygonal painted facets, crisp simple cel shading, warm upper-left lighting, coherent three-quarter perspective. Complete object centered in 75% square transparent canvas with ample margins. No text, floor, shadow, external glow, frame or scene. Real transparent background.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-2a1e89d8-bebc-41ea-8809-494aff98a4f4.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "golden-staff",
+    "name": "金箍棒",
+    "grade": 6,
+    "file": "world-6-golden-staff-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Use case: stylized-concept. Wonderseeker inventory sprite: One Ruyi Jingu Bang staff diagonally from lower left to upper right, long dark red iron shaft, broad ornate gold bands at both ends, no writing. Match reference illustration style exactly: thick dark navy contours, chunky proportions, crisp broad faceted cel shading, warm upper-left light, three-quarter view. Single complete centered object, 78% square canvas with generous transparent margins. Actual transparent background. No text, floor, shadow, aura, particles or frame.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-4e3a1130-c02c-4124-b1f4-9ebd66e92317.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "thunder-hammer",
+    "name": "雷神之锤",
+    "grade": 6,
+    "file": "world-6-thunder-hammer-v2.png",
+    "tool": "built-in image_gen",
+    "prompt": "ONE Norse Thor hammer Mjolnir collectible icon for Wonderseeker. Critical geometry: the HAMMER HEAD and HANDLE MUST share ONE coherent three-quarter camera perspective. Draw a broad horizontal rectangular forged iron head with its front and right side visible. A short straight handle emerges from the EXACT CENTER of the BOTTOM face, perfectly perpendicular to the head's long axis, aligned in the SAME perspective, visibly continuous into its socket. Do not twist the handle into another viewing direction. Keep the whole hammer upright, no diagonal rotation, so geometry is unambiguous. Symmetrical iron hammer head, small chamfered metal edges, short brown leather wrapped wooden handle and small leather wrist loop. Bold very dark navy outlines, chunky proportions, crisp broad polygonal cel shading, upper-left light, matching a cozy cartoon treasure collecting game. Complete centered hammer in 75% square transparent canvas, generous margins. One object only. No writing, logo, emblem, runes, stone cracks, lightning, external glow, background, ground or shadow. Actual transparent background.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-9fb04138-4049-4510-a248-260b747778f8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "wish-jewel",
+    "name": "如意宝珠",
+    "grade": 7,
+    "file": "world-7-wish-jewel-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "ONE Wonderseeker collectible game sprite: One luminous round pearl-like wish jewel in a small lotus-shaped antique golden holder, iridescent cyan pink inner reflections contained inside orb, no external aura. Thick very dark navy outlines, chunky stylized proportions, broad polygonal painted facets, crisp simple cel shading, warm upper-left lighting, coherent three-quarter perspective. Complete object centered in 75% square transparent canvas with ample margins. No text, floor, shadow, external glow, frame or scene. Real transparent background.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-dab75415-47d2-408a-b3ea-fb7c9924f74b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "genie-lamp",
+    "name": "阿拉丁神灯",
+    "grade": 7,
+    "file": "world-7-genie-lamp-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Wonderseeker inventory collectible: ONE classic Aladdin brass oil lamp with squat rounded body, long upturned spout on left, curved loop handle on right and small domed lid. Brass metal and small turquoise inlays. Match reference's thick dark navy outlines, broad faceted cel shading, chunky proportions, warm upper-left light, coherent three-quarter perspective. Full lamp centered in 75% square with generous transparent margins. Genuine transparent background. No genie, smoke, text, floor, shadow, aura, frame or scene.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-fe2e6ca4-dd71-40d7-abe6-383c15674e13.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "iphone18",
+    "name": "iPhone18",
+    "grade": 6,
+    "file": "world-6-iphone18-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Edit this phone sprite ONLY to fix its geometry. The current phone is approximately 6 units long by 1 unit wide. Make the PHONE BODY exactly NINE units long by ONE unit wide (9:1), by narrowing the entire phone horizontally to TWO THIRDS of its current width while keeping its length, the physical circular Home button and upper earpiece. Rebuild the circular Home button so it stays circular after narrowing. Make the body extremely long and thin, like an absurd sitcom prop. Preserve its white/silver bezel, black screen, front-facing camera view, clean dark contours and simplified game illustration style. Keep the entire complete phone visible, centered on actual transparent background with clear margins. No extra objects, logos, text, ground or glow. The phone body's silhouette itself, excluding empty background, MUST be 9:1 length:width.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-dfef989d-ed00-4e91-b09f-09d8fa95d0a8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  {
+    "slug": "diamond-sword",
+    "name": "钻石剑",
+    "grade": 6,
+    "file": "world-6-diamond-sword-v1.png",
+    "tool": "built-in image_gen",
+    "prompt": "Create ONE Minecraft DIAMOND SWORD inventory sprite, preserving the recognizable ORIGINAL PIXEL ART silhouette: a stair-stepped turquoise diamond blade rising diagonally upper-right from a dark brown handle at lower-left, cyan crossguard, dark teal edge pixels and pale cyan highlight pixels. Flat 2D pixel-art game item in a consistent coarse square pixel grid (approximately a classic 16x16 inventory icon scaled up with crisp hard nearest-neighbor edges). Every edge must stay square and stair-stepped. No smooth curves, antialiasing, painterly facets, 3D perspective, bevel rendering, decorative symbols or realistic materials. A single intact Minecraft diamond sword, centered with generous transparent margins, whole sword visible. Real transparent background. No text, frame, ground, shadow, glow or particles. This item intentionally remains pixel art when shown among Wonderseeker's other collectibles; rarity glow will be applied by the game.",
+    "output_hint": "Generated images are saved to C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45 as C:\\Users\\test123\\.codex\\generated_images\\01a13e75-823e-7e43-9e37-d5b7f11fae45\\exec-54b7d1e0-02f7-409e-babf-d4a61905863c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  }
+]
