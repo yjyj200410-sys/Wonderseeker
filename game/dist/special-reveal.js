@@ -16,3 +16,6 @@ export function specialFinalWaves(grade) {
   const count=2;
   return Array.from({length:count},(_,i)=>`<div class="reveal-final-wave" style="animation-duration:.3s;animation-delay:${i*.08}s" aria-hidden="true"></div>`).join('');
 }
+
+// Single-shot rare reveals enter their final visual state directly.
+export function singleRevealStep(grade){return grade===8?4:grade===7?3:0;}

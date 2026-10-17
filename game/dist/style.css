@@ -135,7 +135,7 @@ main.treasure-page{position:relative;width:100%;height:100dvh;padding:0;margin:0
 .reward-page{cursor:pointer}
 @media(max-width:560px){.treasure-exit{left:10px;top:18px;font-size:23px}.treasure-wallet{right:16px;top:20px;gap:3px}.treasure-wallet img{width:40px;height:40px}.treasure-wallet strong{font-size:24px}.container-name{top:25%;font-size:32px}.treasure-rewards{gap:12px}.treasure-item{width:120px;height:140px}}
 /* Shared default background for every secondary route. */
-body:not(.home-active){background:#04153f url('./assets/backgrounds/deep-blue-gradient-v1.png') center/cover fixed no-repeat}
+body:not(.home-active){background:#0b3475 url('./assets/backgrounds/blue-treasure-outline-v2.png') center/cover fixed no-repeat}
 body:not(.home-active) .workspace{background:transparent}
 body:not(.home-active) .sidebar{background:#07163dd9;border-color:#7188cb40}
 body:not(.home-active) .topbar{background:#091a4538;border-color:#7188cb40}
@@ -316,7 +316,7 @@ main.grade7-light-scene{position:fixed;inset:0;z-index:1000;margin:0;padding:0;w
 .grade7-reward-finale .treasure-item{animation:none}
 
 main.grade7-dim-scene{position:fixed;inset:0;z-index:1000;width:100vw;height:100dvh;padding:0;margin:0;overflow:hidden}
-.grade7-dim-backdrop{position:absolute;inset:0;pointer-events:none;background:#04153f url('./assets/backgrounds/deep-blue-gradient-v1.png') center/cover no-repeat}
+.grade7-dim-backdrop{position:absolute;inset:0;pointer-events:none;background:#0b3475 url('./assets/backgrounds/blue-treasure-outline-v2.png') center/cover no-repeat}
 .grade7-dim-shade{position:absolute;inset:0;background:#030612;animation:grade7-darken .6s ease-in-out both}
 @keyframes grade7-darken{from{opacity:0}to{opacity:1}}
 .grade7-reward-finale .treasure-item{animation:grade7-item-grow .5s cubic-bezier(.2,.7,.3,1) both}
@@ -432,7 +432,7 @@ main.grade-color-reveal{background:radial-gradient(circle at center,color-mix(in
 #toast{font-size:26px;-webkit-text-stroke:1.5px #000;paint-order:stroke fill;text-shadow:0 3px 4px #000b}
 @media(max-width:560px){#toast{font-size:22px;-webkit-text-stroke:1.2px #000}}
 
-main.settings-page{min-height:100dvh;width:100%;margin:0;padding:24px 24px 48px;color:#fff;background:#04153f url('./assets/backgrounds/deep-blue-gradient-v1.png') center/cover fixed no-repeat}
+main.settings-page{min-height:100dvh;width:100%;margin:0;padding:24px 24px 48px;color:#fff;background:#0b3475 url('./assets/backgrounds/blue-treasure-outline-v2.png') center/cover fixed no-repeat}
 .settings-page-header{max-width:900px;margin:0 auto 20px;display:grid;grid-template-columns:180px 1fr 180px;align-items:center;gap:16px}
 .settings-page-header h1{margin:0;text-align:center;font-size:32px;font-weight:900;color:#fff;text-shadow:0 3px 4px #0009}
 .settings-page .settings-body{max-width:760px;margin:0 auto;padding:0 20px 24px}
@@ -583,7 +583,7 @@ body.reduce-motion [data-grade="8"] .loot-spectrum-mask{filter:none}
 }
 
 /* Coin balance shares the blue scene and illustrated return control. */
-.dialog.wallet-page{position:fixed;inset:0;box-sizing:border-box;width:min(720px,calc(100vw - 32px));height:auto;max-width:calc(100vw - 32px);max-height:calc(100dvh - 40px);margin:auto;padding:0;border:2px solid #70b6ed;border-radius:24px;background:#04153f url('./assets/backgrounds/deep-blue-gradient-v1.png') center/cover no-repeat;color:#fff;box-shadow:0 20px 70px #0008,inset 0 1px 0 #ffffff30;overflow:auto}
+.dialog.wallet-page{position:fixed;inset:0;box-sizing:border-box;width:min(720px,calc(100vw - 32px));height:auto;max-width:calc(100vw - 32px);max-height:calc(100dvh - 40px);margin:auto;padding:0;border:2px solid #70b6ed;border-radius:24px;background:#0b3475 url('./assets/backgrounds/blue-treasure-outline-v2.png') center/cover no-repeat;color:#fff;box-shadow:0 20px 70px #0008,inset 0 1px 0 #ffffff30;overflow:auto}
 .wallet-page::backdrop{background:#02112b99}
 .wallet-page .dialog-heading{position:relative;display:flex;justify-content:center;align-items:center;min-height:96px;padding:20px 110px;border:0;background:none}
 .wallet-page .dialog-heading h2{margin:0;color:#fff;font-size:32px;font-weight:900;text-align:center;text-shadow:0 3px 4px #0009}
@@ -608,7 +608,7 @@ body.reduce-motion [data-grade="8"] .loot-spectrum-mask{filter:none}
 button:focus,button:focus-visible{outline:none!important}
 
 /* Warehouse sale confirmation follows the illustrated blue and gold panels. */
-.dialog.sale-confirm-page{box-sizing:border-box;width:min(480px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 32px);padding:0;border:2px solid #70b6ed;border-radius:24px;background:#04153f url('./assets/backgrounds/deep-blue-gradient-v1.png') center/cover no-repeat;color:#fff;box-shadow:0 20px 70px #0008,inset 0 1px 0 #ffffff30;overflow:auto}
+.dialog.sale-confirm-page{box-sizing:border-box;width:min(480px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 32px);padding:0;border:2px solid #70b6ed;border-radius:24px;background:#0b3475 url('./assets/backgrounds/blue-treasure-outline-v2.png') center/cover no-repeat;color:#fff;box-shadow:0 20px 70px #0008,inset 0 1px 0 #ffffff30;overflow:auto}
 .sale-confirm-page::backdrop{background:#02112b99}
 .dialog.sale-confirm-page .dialog-heading{justify-content:center;padding:24px 72px 12px;min-height:80px;border:0;background:none}
 .sale-confirm-page .dialog-heading h2{margin:0;font-size:28px;font-weight:900;color:#fff;text-align:center;text-shadow:0 3px 4px #0009}
@@ -793,3 +793,101 @@ main.unlock-scene{position:fixed;inset:0;z-index:20;background:#0005;animation:u
 .reveal-remaining.has-rare-remaining::after{content:"";position:absolute;left:50%;top:50%;width:calc(100% + .4em);height:1.15em;transform:translate(-50%,-50%);z-index:-1;border-radius:50%;background:radial-gradient(ellipse at center,#ffe65cdd 0%,#ffd52aaa 25%,#ffc21a55 55%,#ffb90015 78%,#ffb90000 100%);filter:blur(4px);animation:remaining-rare-breathe .5s ease-in-out infinite;pointer-events:none}
 @keyframes remaining-rare-breathe{0%,100%{filter:blur(4px) brightness(1)}50%{filter:blur(4px) brightness(2)}}
 @media(prefers-reduced-motion:reduce){.reveal-remaining.has-rare-remaining::before,.reveal-remaining.has-rare-remaining::after{animation:none}}
+
+/* Match the rare reveal's large, staggered background diamonds. */
+main.grade-color-reveal::before{content:"";position:absolute;inset:0;background:url('./assets/ui/reveal-diamond-pattern.svg') center/31.25dvh 62.5dvh repeat;pointer-events:none;z-index:0}
+.grade-color-reveal>.treasure-rewards{z-index:1}
+
+/* Grade 6 keeps a vivid red base instead of mixing in the ordinary gray-blue. */
+main.grade-color-reveal:has(.treasure-item[data-grade="6"]){
+ --reveal-muted:color-mix(in srgb,var(--reveal-background) 94%,#8b1424);
+ background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--reveal-muted) 95%,white) 0%,color-mix(in srgb,var(--reveal-muted) 94%,#621023) 55%,color-mix(in srgb,var(--reveal-muted) 70%,#32101b) 100%);
+}
+
+/* Enlarge these narrow silhouettes only in the individual reward reveal. */
+.single-reveal .treasure-item>img.item-texture:is([src$="world-6-iphone18-v1.png"],[src$="world-6-golden-staff-v3.png"]){width:100%;height:100%}
+
+.reveal-item-name{position:absolute;left:50%;top:82%;z-index:2;transform:translateX(-50%);animation:reveal-name-arrive .32s ease-out .08s both;width:max-content;max-width:90vw;margin:0;text-align:center;font-family:"Microsoft YaHei","Segoe UI",sans-serif;font-size:clamp(23px,3.2vw,36px);line-height:1.35;font-weight:900;color:#fff;-webkit-text-stroke:4px #111;paint-order:stroke fill;text-shadow:0 2px 2px #0008;pointer-events:none;overflow-wrap:anywhere}
+@media(max-height:480px){.single-reveal .treasure-item{max-height:calc(100dvh - 110px)}.reveal-item-name{font-size:23px;top:82%}}
+
+@keyframes reveal-name-arrive{from{opacity:0;transform:translateX(-50%) scale(.7)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+.reduce-motion .reveal-item-name{animation:none}
+@media(prefers-reduced-motion:reduce){.reveal-item-name{animation:none}}
+
+/* Grade 5: stronger amber saturation without filtering the item or its label. */
+main.grade-color-reveal:has(.treasure-item[data-grade="5"]){
+ --reveal-muted:color-mix(in srgb,var(--reveal-background) 94%,#b97708);
+ background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--reveal-muted) 95%,white) 0%,color-mix(in srgb,var(--reveal-muted) 94%,#81520a) 55%,color-mix(in srgb,var(--reveal-muted) 70%,#40280a) 100%);
+}
+
+/* Keep green and blue reveal colors vivid; only the backdrop changes. */
+main.grade-color-reveal:has(.treasure-item[data-grade="2"]){
+ --reveal-muted:color-mix(in srgb,var(--reveal-background) 94%,#078c3d);
+ background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--reveal-muted) 95%,white) 0%,color-mix(in srgb,var(--reveal-muted) 94%,#07562b) 55%,color-mix(in srgb,var(--reveal-muted) 70%,#082e1d) 100%);
+}
+main.grade-color-reveal:has(.treasure-item[data-grade="3"]){
+ --reveal-muted:color-mix(in srgb,var(--reveal-background) 94%,#0753a8);
+ background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--reveal-muted) 95%,white) 0%,color-mix(in srgb,var(--reveal-muted) 94%,#083d79) 55%,color-mix(in srgb,var(--reveal-muted) 70%,#0a2241) 100%);
+}
+
+/* Rare warehouse tiles now share the approved deep-crimson/red/gold reveal palette. */
+:is(.warehouse-item,.warehouse-overflow button,.warehouse-drag-ghost)[data-grade="7"]{--rare-edge:#efb38a;--rare-near:#ffad76a6;--rare-far:#b7274166}
+:is(.warehouse-item,.warehouse-overflow button,.warehouse-drag-ghost)[data-grade="8"]{--rare-edge:#ffe2a0;--rare-near:#ffe3a8d9;--rare-far:#ffb43699}
+:is(.warehouse-item,.warehouse-overflow button):is([data-grade="7"],[data-grade="8"]){
+ background-color:#8c1027;border-color:var(--rare-edge);
+ background-image:linear-gradient(to right,#ffffff28 1px,transparent 1px),linear-gradient(to bottom,#ffffff28 1px,transparent 1px),radial-gradient(ellipse at center,transparent 22%,#23051266 100%),linear-gradient(34deg,#610719 4%,#b71c29 37%,#ec4427 65%,#e8af40 100%);
+ background-size:var(--cell,48px) var(--cell,48px),var(--cell,48px) var(--cell,48px),100% 100%,100% 100%;
+ box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--rare-edge) 40%,transparent);
+}
+:is(.warehouse-item,.warehouse-overflow button):is([data-grade="7"],[data-grade="8"]):hover{border-color:#fff0cd}
+:is(.warehouse-item,.warehouse-overflow button,.warehouse-drag-ghost):is([data-grade="7"],[data-grade="8"])>:is(svg,.item-texture){filter:drop-shadow(0 0 2px var(--rare-near)) drop-shadow(0 0 7px var(--rare-far))}
+
+/* Shared rare palette for settlement, collection displays, and the top-tier chest. */
+:root{--rare-red-gold-light:linear-gradient(34deg,#9b1735 4%,#ee4b38 43%,#ffb968 75%,#ffe0a3 100%);--rare-ex-light:linear-gradient(34deg,#b52b35 0%,#ff9950 38%,#ffd687 72%,#fff0c7 100%)}
+[data-grade="7"]{--rare-item-light:var(--rare-red-gold-light)}
+[data-grade="8"]{--rare-item-light:var(--rare-ex-light)}
+.loot-spectrum-mask{background:var(--rare-item-light,var(--rare-red-gold-light))}
+:is(.reward-page:not(.single-reveal),.gallery-room) [data-grade="8"] .loot-spectrum-mask{filter:none;animation:none}
+.result-card[data-grade="7"] .result-art>:is(svg,.item-texture){filter:drop-shadow(0 0 2px #ffad76a6) drop-shadow(0 0 7px #b7274166)}
+.result-card[data-grade="8"] .result-art>:is(svg,.item-texture){filter:drop-shadow(0 0 2px #ffe3a8d9) drop-shadow(0 0 7px #ffb43699)}
+.result-card:is([data-grade="7"],[data-grade="8"]),.gallery-drawer .picker-item:is([data-grade="7"],[data-grade="8"]),.gallery-drawer .picker-item:is([data-grade="7"],[data-grade="8"]):hover{
+ border-color:#efb38a;background:radial-gradient(ellipse at center,transparent 22%,#23051266 100%),linear-gradient(34deg,#610719 4%,#b71c29 37%,#ec4427 65%,#e8af40 100%);box-shadow:inset 0 0 0 1px #efb38a66;
+}
+.result-card[data-grade="8"],.gallery-drawer .picker-item[data-grade="8"]{border-color:#ffe2a0;box-shadow:inset 0 0 0 1px #ffe2a066,0 0 10px #ffb43633}
+.result-card[data-grade="8"]::before,.gallery-drawer .picker-item[data-grade="8"]::before{background:var(--rare-ex-light)}
+.result-card:is([data-grade="7"],[data-grade="8"]) .grade-tag{color:#fff0cc;background:#6e142d66}
+.gallery-room .display-slot[data-grade="7"]{--grade-color:#efb38a!important}
+.gallery-room .display-slot[data-grade="8"]{--grade-color:#ffe2a0!important}
+.gallery-room .display-slot:is([data-grade="7"],[data-grade="8"]) h3{color:#ffe2a0}
+.bouncing-container[data-container-grade="7"] .container-wait-glow>span{background:var(--rare-red-gold-light)}
+.container-carousel .carousel-container[data-tier="6"].centered .container-art{filter:brightness(1.1) drop-shadow(0 0 var(--container-glow-radius,28px) #ffb96888)}
+
+/* Stronger rare silhouettes across warehouse, settlement and collection displays. */
+:is(.warehouse-item,.warehouse-overflow button,.warehouse-drag-ghost)[data-grade="7"]{--rare-near:#ffc18aff;--rare-far:#ff493acb}
+:is(.warehouse-item,.warehouse-overflow button,.warehouse-drag-ghost)[data-grade="8"]{--rare-near:#fff0c4ff;--rare-far:#ffbf45f0}
+:is(.warehouse-item,.warehouse-overflow button,.warehouse-drag-ghost):is([data-grade="7"],[data-grade="8"])>:is(svg,.item-texture){filter:drop-shadow(0 0 3px var(--rare-near)) drop-shadow(0 0 11px var(--rare-far))}
+:is(.reward-page:not(.single-reveal),.gallery-room) :is([data-grade="7"],[data-grade="8"]){--glow-core:3px;--glow-near:8px;--glow-far:16px}
+:is(.reward-page:not(.single-reveal),.gallery-room) :is([data-grade="7"],[data-grade="8"]) .loot-spectrum-glow.glow-core{opacity:1;filter:blur(var(--glow-core)) brightness(1.65)}
+:is(.reward-page:not(.single-reveal),.gallery-room) :is([data-grade="7"],[data-grade="8"]) .loot-spectrum-glow.glow-near{opacity:1;filter:blur(var(--glow-near)) brightness(1.5)}
+:is(.reward-page:not(.single-reveal),.gallery-room) :is([data-grade="7"],[data-grade="8"]) .loot-spectrum-glow.glow-far{opacity:.95;filter:blur(var(--glow-far)) brightness(1.4)}
+:is(.reward-page:not(.single-reveal),.gallery-room) [data-grade="8"]{--glow-core:4px;--glow-near:11px;--glow-far:22px}
+.result-card[data-grade="7"] .result-art>:is(svg,.item-texture){filter:drop-shadow(0 0 3px #ffc18aff) drop-shadow(0 0 11px #ff493acb)}
+.result-card[data-grade="8"] .result-art>:is(svg,.item-texture){filter:drop-shadow(0 0 4px #fff0c4ff) drop-shadow(0 0 15px #ffbf45f0)}
+.bouncing-container[data-container-grade="7"]{--container-near:18px;--container-far:38px}
+.bouncing-container[data-container-grade="7"] .container-wait-glow.glow-near{opacity:1;filter:blur(var(--container-near)) brightness(1.65)}
+.bouncing-container[data-container-grade="7"] .container-wait-glow.glow-far{opacity:.85;filter:blur(var(--container-far)) brightness(1.5)}
+.container-carousel .carousel-container[data-tier="6"].centered .container-art{filter:brightness(1.12) drop-shadow(0 0 9px #ffdfa5dd) drop-shadow(0 0 var(--container-glow-radius,28px) #ff9a47dd)}
+
+/* Lift rare tile fills without changing their artwork or glow strength. */
+:is(.warehouse-item,.warehouse-overflow button):is([data-grade="7"],[data-grade="8"]){
+ background-color:#d22d3d;
+ background-image:linear-gradient(to right,#ffffff35 1px,transparent 1px),linear-gradient(to bottom,#ffffff35 1px,transparent 1px),radial-gradient(ellipse at center,transparent 35%,#450d201f 100%),linear-gradient(34deg,#a21935 0%,#e53941 34%,#fa7042 66%,#ffd076 100%);
+}
+.gallery-drawer .picker-item:is([data-grade="7"],[data-grade="8"]),.gallery-drawer .picker-item:is([data-grade="7"],[data-grade="8"]):hover{
+ background:radial-gradient(ellipse at center,transparent 35%,#450d201f 100%),linear-gradient(34deg,#a21935 0%,#e53941 34%,#fa7042 66%,#ffd076 100%);
+}
+
+.settlement-total{position:absolute;right:clamp(20px,4vw,56px);top:clamp(20px,4vh,40px);z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:5px;color:#fff;pointer-events:none;text-shadow:-1px -1px 0 #172134,1px -1px 0 #172134,-1px 1px 0 #172134,1px 1px 0 #172134,0 2px 3px #0008;max-width:calc(100% - 40px);overflow-wrap:anywhere;text-align:right}
+.settlement-total>span{font-size:clamp(15px,1.8vw,21px)}
+.settlement-total strong{font-size:clamp(22px,3vw,34px);font-weight:700;line-height:1.2}
+.settlement-total small{font-size:.6em}

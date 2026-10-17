@@ -2,11 +2,13 @@ import { createUnlockSounds } from './unlock-sounds.js';
 import { renderCoverTitle, renderCoverButton } from './cover-title.js';
 import { createWaitingMusic } from './waiting-music.js';
 import { makeItems, gradeNames, colors, lootColors, tierNames, tierSubtitles, itemSVG, lootArt, crateSVG } from './content.js';
-import { fresh, validate, setDebugValue, openBox, settle, finish, sellInventory, toggleLock, setDisplay, exhibited, unlocked, weightsFor, migrateTestItems, migrateEconomy, autoSellDrops } from './engine.js';
+import { fresh, validate, setDebugValue, openBox, settle, finish, sellInventory, toggleLock, setDisplay, exhibited, unlocked, weightsFor, migrateTestItems, migrateEconomy, autoSellDrops, settleInterruptedOpen } from './engine.js';
 import { connect, read, write } from './storage.js';
 import { packWarehouse, moveWarehouseItem, warehouseDropTarget, sellableInstance, sellWarehouseInstances, tidyWarehouse } from './warehouse.js';
 import { createMusic } from './music.js';
-import { advanceSpecialStep, specialPhaseMarkup, specialFinalWaves } from './special-reveal.js';
+import { advanceSpecialStep, singleRevealStep } from './special-reveal.js';
+import {createDivineReveal} from './divine-reveal.js';
+const divineReveal=createDivineReveal();
 
 const $ = selector => document.querySelector(selector);
 const app = $('#app'), modalRoot = $('#modal-root');
@@ -28,7 +30,7 @@ function playSettlementSequence(count){
  },i*90));
 }
 let specialStep=0,specialVoices=[];
-const specialSounds={grade7:Array.from({length:3},(_,i)=>new Audio(`./assets/audio/reveals/musiclab-grade7-step-${i+1}-brass-v14.wav`)),ex:Array.from({length:4},(_,i)=>new Audio(`./assets/audio/reveals/musiclab-ex-step-${i+1}-brass-v14.wav`))};
+const specialSounds={grade7:Array.from({length:3},(_,i)=>new Audio(`./assets/audio/reveals/musiclab-grade7-step-${i+1}-brass-v14.wav`)),ex:Array.from({length:4},(_,i)=>new Audio(i===3?'./assets/audio/reveals/musiclab-ex-single-choir-v15.wav':`./assets/audio/reveals/musiclab-ex-step-${i+1}-brass-v14.wav`))};
 for(const players of Object.values(specialSounds))for(const player of players)player.preload='auto';
 function stopSpecialSounds(){for(const player of specialVoices){player.pause();player.currentTime=0;}specialVoices=[];}
 function playSpecialSound(grade,step){if(!state.settings.sound)return;const player=specialSounds[grade===8?'ex':'grade7'][step-1].cloneNode();player.volume=.8;specialVoices.push(player);player.play().catch(()=>{});}
@@ -158,13 +160,13 @@ function showRewardReveal(index){
  clearTimeout(revealTimer);revealAt=0;
  stopSettlementSounds();
  stopGradeRevealSounds();
- stopSpecialSounds();specialStep=0;exWaiting=false;grade7Finale=false;
+ divineReveal.stop();stopSpecialSounds();specialStep=0;exWaiting=false;grade7Finale=false;
  if(!state.pending)return;
  rewardIndex=index<state.pending.drops.length?index:-1;
  const grade=rewardIndex>=0?items[state.pending.drops[rewardIndex].id].grade:0;
  nextRevealAt=Date.now()+500;
  if(grade===7 || grade===8){
-   specialStep=1;exWaiting=true;playSpecialSound(grade,1);
+   specialStep=singleRevealStep(grade);exWaiting=false;grade7Finale=true;playSpecialSound(grade,specialStep);
  }
  overviewUntil=rewardIndex<0?Date.now()+(state.pending.drops.length-1)*90+180:0;render();
  if(rewardIndex<0&&state.settings.sound)playSettlementSequence(state.pending.drops.length);
@@ -225,6 +227,7 @@ function newbie() {
 }
 function render() {
   if (!state) return;
+  if(!enteredGame||route!=='container'||!state.pending||rewardIndex<0||(!exWaiting&&!grade7Finale))divineReveal.stop();
   if(!state.settings.sound){unlockSounds.stop();codexPageSound.pause();stopGradeRevealSounds();settlementSound.pause();stopSettlementSounds();chestCoinsSound.pause();}
   if(route!=='container'||!state.pending)stopSettlementSounds();
   document.body.classList.toggle('grade7-animating', exWaiting && rewardIndex>=0 && state.pending && items[state.pending.drops[rewardIndex].id].grade>=7);
@@ -278,6 +281,8 @@ function render() {
   if (route === 'open' || route === 'container') {
     app.innerHTML = route === 'open' ? renderCarousel() : renderContainerPage();
     if (route === 'open') setupCarousel();
+    const divineHost=app.querySelector('[data-divine-grade]');
+    if(divineHost)divineReveal.sync(divineHost,{grade:Number(divineHost.dataset.divineGrade),phase:specialStep,quiet:state.settings.reducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches});
     return;
   }
   if (route === 'home') {
@@ -409,7 +414,7 @@ function setupWarehouseDrag(){
   if(!drag)return;const dx=event.clientX-drag.startX,dy=event.clientY-drag.startY;
   if(!drag.moved&&Math.hypot(dx,dy)<7)return;
   drag.clientX=event.clientX;drag.clientY=event.clientY;
-  if(!drag.moved){drag.moved=true;playWarehouseSound(warehouseDragSound);drag.button.classList.add('drag-source');drag.ghost=document.createElement('div');drag.ghost.className='warehouse-drag-ghost';drag.ghost.innerHTML=drag.button.innerHTML;document.body.append(drag.ghost);frame=requestAnimationFrame(autoScroll);}
+  if(!drag.moved){drag.moved=true;playWarehouseSound(warehouseDragSound);drag.button.classList.add('drag-source');drag.ghost=document.createElement('div');drag.ghost.className='warehouse-drag-ghost';drag.ghost.dataset.grade=drag.button.dataset.grade;drag.ghost.innerHTML=drag.button.innerHTML;document.body.append(drag.ghost);frame=requestAnimationFrame(autoScroll);}
   update();
  });
  const stop=async(event,cancel=false)=>{
@@ -460,13 +465,13 @@ function renderContainerPage() {
     };
     if(exWaiting){
       const grade=items[pending.drops[rewardIndex].id].grade;
-      return `<main class="grade7-light-scene stepped-special-scene ${specialStep===1?'starfield-enter':''}" data-action="advance-special" role="button" tabindex="0" aria-label="点击继续${grade===8?'EX':'7级'}揭示，第 ${specialStep} 步">${specialPhaseMarkup(specialStep,grade)}</main>`;
+      return `<main class="treasure-page divine-reveal" data-divine-grade="${grade}" data-action="advance-special" role="button" tabindex="0" aria-label="点击继续${grade===8?'EX':'7级'}揭示，第 ${specialStep} 步"></main>`;
     }
     if(Date.now()<revealAt){const openingColor='#e8eaed';return `<main class="treasure-page revealing" style="--opening-color:${openingColor}" aria-label="正在揭晓"><div class="reveal-flash"></div>${skip}${remainingBadge(0)}</main>`;}
     const single=rewardIndex>=0,drops=single?[pending.drops[rewardIndex]]:pending.drops;
     const revealGrade=single?items[drops[0].id].grade:0;
     const revealColor=revealGrade===1?'#aeb5bf':lootColors[revealGrade-1];
-    return `<main class="treasure-page reward-page ${single?'single-reveal':''} ${single&&revealGrade<=6?'grade-color-reveal':''} ${single&&grade7Finale?'grade7-reward-finale grade7-finale':''} ${single&&grade7Finale&&items[drops[0].id].grade===8?'ex-reward-finale':''}" data-reveal-index="${single?rewardIndex:'all'}" ${single&&revealGrade<=6?`style="--reveal-background:${revealColor}"`: ''} data-action="dismiss-rewards" tabindex="0" role="button" aria-label="${single?'点击继续揭晓下一件':'点击任意位置保留物品并继续'}">${single&&grade7Finale?specialFinalWaves(revealGrade):''}${single&&grade7Finale&&revealGrade===8?'<div class="ex-back-aura" aria-hidden="true"></div>':''}<div class="treasure-rewards">${drops.map((d,i)=>`<div class="treasure-item ${single?'':'overview-item'}" data-grade="${items[d.id].grade}" style="--loot-color:${lootColors[items[d.id].grade-1]};--overview-delay:${i*90}ms" aria-label="${items[d.id].name}">${lootArt(items[d.id])}${single&&grade7Finale&&revealGrade===8?`<span class="ex-surface-glow" style="--surface-mask:url('${items[d.id].texture}')" aria-hidden="true"></span>`:''}</div>`).join('')}</div>${single?skip:''}${single?remainingBadge(rewardIndex):''}</main>`;
+    return `<main class="treasure-page reward-page ${single?'single-reveal':''} ${single&&revealGrade<=6?'grade-color-reveal':''} ${single&&grade7Finale?'divine-reveal divine-final':''} ${single&&grade7Finale&&items[drops[0].id].grade===8?'ex-reward-finale':''}" ${single&&grade7Finale?`data-divine-grade="${revealGrade}"`: ''} data-reveal-index="${single?rewardIndex:'all'}" ${single&&revealGrade<=6?`style="--reveal-background:${revealColor}"`: ''} data-action="dismiss-rewards" tabindex="0" role="button" aria-label="${single?'点击继续揭晓下一件':'点击任意位置保留物品并继续'}"><div class="treasure-rewards">${drops.map((d,i)=>`<div class="treasure-item ${single?'':'overview-item'}" data-grade="${items[d.id].grade}" style="--loot-color:${lootColors[items[d.id].grade-1]};--overview-delay:${i*90}ms" aria-label="${items[d.id].name}">${lootArt(items[d.id])}</div>`).join('')}</div>${single?`<span class="reveal-item-name">${escapeHTML(items[drops[0].id].name)}</span>`:''}${single?skip:''}${single?remainingBadge(rewardIndex):`<div class="settlement-total" role="status" aria-label="本次掉落价值总计"><span>价值总计</span><strong>${money(drops.reduce((sum,d)=>sum+BigInt(d.price),0n))} <small>金币</small></strong></div>`}</main>`;
   }
   return `<main class="treasure-page" aria-label="开启${tierNames[selected]}"><button class="treasure-exit outlined-text" data-action="nav" data-route="open" aria-label="返回宝箱选择"><img src="./assets/ui/button-back-left-yellow-v1.png" alt="" draggable="false"></button><button class="bouncing-container" data-container-grade="${selected+1}" style="--container-glow:${lootColors[selected]};--container-mask:url('./assets/containers/container-${selected}-v2.png')" data-action="open-container" aria-label="开启${tierNames[selected]}${state.containerUnlocks?.[selected]==='ready'?'，免费一次':''}" ${busy?'disabled':''}><span class="container-wait-glow glow-far" aria-hidden="true"><span></span></span><span class="container-wait-glow glow-near" aria-hidden="true"><span></span></span>${crateSVG(selected)}</button></main>`;
 }
@@ -600,7 +605,7 @@ function showSettings() {
   closeModal();route='settings';render();window.scrollTo({top:0,behavior:'auto'});
 }
 function renderSettingsPage() {
-  return `<main class="settings-page" aria-label="设置与存档"><header class="settings-page-header">${btn('<img src="./assets/ui/button-back-left-yellow-v1.png" alt="" draggable="false">','nav',`data-route="home" aria-label="${enteredGame?'返回主页':'返回封面'}"`,'button settings-return arrow-back')}<h1>设置与存档</h1></header><div class="settings-body"><div class="setting-row"><span><strong>屏幕显示</strong><small>横屏游玩可使用浏览器全屏</small></span><button type="button" class="button secondary" data-display-fullscreen>${document.fullscreenElement||document.webkitFullscreenElement?'退出全屏':'全屏游玩'}</button></div><label class="setting-row"><span><strong>背景音乐</strong><small>轻柔的《星光小憩》与欢快管乐版《晴光漫游》</small></span><input type="checkbox" data-setting="music" ${state.settings.music!==false?'checked':''}></label><label class="setting-row music-mode-row"><span><strong>播放方式</strong><small>选择单曲循环，或按顺序轮换两首音乐；自动保存并立即生效</small></span><select class="music-mode-select" data-setting="musicMode" aria-label="背景音乐播放方式">${[['rotate','两首轮换'],['starlight','星光小憩 · 轻柔'],['sunshine','晴光漫游 · 欢快管乐']].map(([value,label])=>`<option value="${value}" ${(state.settings.musicMode??'rotate')===value?'selected':''}>${label}</option>`).join('')}</select></label><label class="setting-row"><span><strong>游戏音效</strong><small>开启、掉落和出售的简短反馈</small></span><input type="checkbox" data-setting="sound" ${state.settings.sound?'checked':''}></label><label class="setting-row"><span><strong>减少动画</strong><small>快速展示掉落，仍遵守最低开启间隔</small></span><input type="checkbox" data-setting="reducedMotion" ${state.settings.reducedMotion?'checked':''}></label><label class="setting-row"><span><strong>调试模式</strong><small>展开高爆率、金币和 EXP 调试选项</small></span><input type="checkbox" data-setting="debugMode" ${state.settings.debugMode?'checked':''}></label>${state.settings.debugMode?`<section class="debug-options" aria-label="隐藏调试选项"><label class="setting-row"><span><strong>高爆率模式</strong><small>每次至少获得一件容器掉落池内的最高等级物品，包含 EX；关闭调试模式后不生效</small></span><input type="checkbox" data-setting="debugHighDrop" ${state.settings.debugHighDrop?'checked':''}></label><div class="debug-value-row"><label for="debug-balance">设置金币数</label><div><input id="debug-balance" type="text" inputmode="numeric" maxlength="80" value="${state.balance}" aria-label="调试金币数">${btn('应用金币','set-debug-value','data-field="balance"','button secondary')}</div></div><div class="debug-value-row"><label for="debug-xp">设置 EXP</label><div><input id="debug-xp" type="text" inputmode="numeric" maxlength="16" value="${state.xp}" aria-label="调试 EXP">${btn('应用 EXP','set-debug-value','data-field="xp"','button secondary')}</div><small>设置为指定总量；达到新门槛后，返回首页或容器选择页播放解锁动画。已领取奖励不会重复发放。</small></div></section>`:''}<div class="settings-section"><h3>本地存档</h3><p>进度保存在当前浏览器的网站数据中。清除网站数据或换设备后不会自动恢复，请定期导出备份。</p><div class="settings-buttons">${btn('导出存档','export','','button primary')}<label class="button secondary file-button">导入存档<input id="import-file" type="file" accept=".json,application/json"></label></div><small>版本：${state.economyVersion} · 最近保存 ${new Date(state.updatedAt).toLocaleString('zh-CN')}</small></div><div class="settings-section"><h3>离线游玩</h3><p id="offline-status">${navigator.serviceWorker?.controller?'网页资源已缓存，可断网继续游玩。':'正在准备资源缓存，首次打开需联网。'}</p></div><div class="settings-section danger"><h3>重新开始</h3><p>删除当前收藏、货币和成长进度，建立新的本地存档。</p>${btn('重置存档','reset','','button danger-button')}</div></div></main>`;
+  return `<main class="settings-page" aria-label="设置与存档"><header class="settings-page-header">${btn('<img src="./assets/ui/button-back-left-yellow-v1.png" alt="" draggable="false">','nav',`data-route="home" aria-label="${enteredGame?'返回主页':'返回封面'}"`,'button settings-return arrow-back')}<h1>设置与存档</h1></header><div class="settings-body"><div class="setting-row"><span><strong>屏幕显示</strong><small>横屏游玩可使用浏览器全屏</small></span><button type="button" class="button secondary" data-display-fullscreen>${document.fullscreenElement||document.webkitFullscreenElement?'退出全屏':'全屏游玩'}</button></div><label class="setting-row"><span><strong>背景音乐</strong><small>轻柔的《星光小憩》与欢快管乐版《晴光漫游》</small></span><input type="checkbox" data-setting="music" ${state.settings.music!==false?'checked':''}></label><label class="setting-row music-mode-row"><span><strong>播放方式</strong><small>选择单曲循环，或按顺序轮换两首音乐；自动保存并立即生效</small></span><select class="music-mode-select" data-setting="musicMode" aria-label="背景音乐播放方式">${[['rotate','两首轮换'],['starlight','星光小憩 · 轻柔'],['sunshine','晴光漫游 · 欢快管乐']].map(([value,label])=>`<option value="${value}" ${(state.settings.musicMode??'rotate')===value?'selected':''}>${label}</option>`).join('')}</select></label><label class="setting-row"><span><strong>游戏音效</strong><small>开启、掉落和出售的简短反馈</small></span><input type="checkbox" data-setting="sound" ${state.settings.sound?'checked':''}></label><label class="setting-row"><span><strong>减少动画</strong><small>快速展示掉落，仍遵守最低开启间隔</small></span><input type="checkbox" data-setting="reducedMotion" ${state.settings.reducedMotion?'checked':''}></label><label class="setting-row"><span><strong>调试模式</strong><small>展开高爆率、金币和 EXP 调试选项</small></span><input type="checkbox" data-setting="debugMode" ${state.settings.debugMode?'checked':''}></label>${state.settings.debugMode?`<section class="debug-options" aria-label="隐藏调试选项"><label class="setting-row"><span><strong>高爆率模式</strong><small>每箱必出 EX 和 7 级各一件；免费下水道改为掉落两件。关闭调试模式后不生效</small></span><input type="checkbox" data-setting="debugHighDrop" ${state.settings.debugHighDrop?'checked':''}></label><div class="debug-value-row"><label for="debug-balance">设置金币数</label><div><input id="debug-balance" type="text" inputmode="numeric" maxlength="80" value="${state.balance}" aria-label="调试金币数">${btn('应用金币','set-debug-value','data-field="balance"','button secondary')}</div></div><div class="debug-value-row"><label for="debug-xp">设置 EXP</label><div><input id="debug-xp" type="text" inputmode="numeric" maxlength="16" value="${state.xp}" aria-label="调试 EXP">${btn('应用 EXP','set-debug-value','data-field="xp"','button secondary')}</div><small>设置为指定总量；达到新门槛后，返回首页或容器选择页播放解锁动画。已领取奖励不会重复发放。</small></div></section>`:''}<div class="settings-section"><h3>本地存档</h3><p>进度保存在当前浏览器的网站数据中。清除网站数据或换设备后不会自动恢复，请定期导出备份。</p><div class="settings-buttons">${btn('导出存档','export','','button primary')}<label class="button secondary file-button">导入存档<input id="import-file" type="file" accept=".json,application/json"></label></div><small>版本：${state.economyVersion} · 最近保存 ${new Date(state.updatedAt).toLocaleString('zh-CN')}</small></div><div class="settings-section"><h3>离线游玩</h3><p id="offline-status">${navigator.serviceWorker?.controller?'网页资源已缓存，可断网继续游玩。':'正在准备资源缓存，首次打开需联网。'}</p></div><div class="settings-section danger"><h3>重新开始</h3><p>删除当前收藏、货币和成长进度，建立新的本地存档。</p>${btn('重置存档','reset','','button danger-button')}</div></div></main>`;
 }
 function showRules() {
   showDialog('探索与收藏规则',`<div class="rules-body"><p>选择箱子，直接花游戏币开启。每次固定产出一定数量的物品，你可以保留收藏，也可以按标价 100% 出售。</p><ul><li>下水道免费，无次数上限；资金不足时可继续探索。</li><li>普通物品共 7 级、${Object.values(items).filter(item=>item.grade<8).length} 种；EX 共 ${Object.values(items).filter(item=>item.grade===8).length} 种，高级箱子的稀有物品和 EX 掉落率更高。允许重复，同箱也可能多件 EX。</li><li>每件先判定 EX，命中后替换普通物品。EX 条件权重为 2∶2∶1，无保底或幸运值。</li><li>前 200 次付费开箱：原有主要掉落等级向高一级转移 8 个百分点；201～300 次转移 4 个百分点。下水道和 EX 不受加成影响。</li><li>经验达到门槛就解锁新箱子，二至六级各发放固定解锁奖励，只发一次。</li><li>图鉴发现记录永久保留；收藏馆需要持有实物，展品和锁定物品不可出售。</li><li>无真实货币充值、玩家交易、自动开箱或离线收益。出售全部掉落时，1～3 级箱子每次保证盈利；4～6 级箱子标准盈利概率约为 77.5%、79.2%、85.2%，偶尔会亏损。相邻低一级箱子仍可回收亏损差额。</li></ul><div class="table-scroll"><table><thead><tr><th>箱子</th><th>价格</th><th>件数</th><th>经验</th></tr></thead><tbody>${economy.boxes.map(b=>`<tr><td>${tierNames[b.tier]}</td><td>${money(b.price)}</td><td>${b.item_count}</td><td>${economy.progression.xp_per_open[b.tier]}</td></tr>`).join('')}</tbody></table></div><p class="dialog-note">货币与成长在此浏览器本地运行。导入自己的备份可回到备份时的进度。</p></div>`,{wide:true,type:'rules'});
@@ -846,9 +851,16 @@ async function start() {
   try {
     db=await connect();const saved=await read(db);
     state=saved?validate(migrateEconomy(migrateTestItems(saved,items),economy,items),economy,items):fresh(economy);
-    if(!saved||saved.contentVersion!==state.contentVersion||saved.economyVersion!==state.economyVersion)await write(db,state);
-    if(state.pending){selected=state.pending.tier;route='container';revealAt=0;overviewUntil=Date.now()+(state.pending.drops.length-1)*90+180;}
+    const interrupted=!!state.pending;
+    if(interrupted){
+      selected=state.pending.tier;
+      state=settleInterruptedOpen(state);state.revision++;state.updatedAt=Date.now();
+      validate(state,economy,items);
+    }
+    if(interrupted||!saved||saved.contentVersion!==state.contentVersion||saved.economyVersion!==state.economyVersion)await write(db,state);
     render();
+    const warmReveal=()=>divineReveal.prepare();
+    if('requestIdleCallback' in window)window.requestIdleCallback(warmReveal,{timeout:1000});else setTimeout(warmReveal,100);
     if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>toast('离线缓存暂未就绪，在线游玩和存档不受影响'));
   }catch(error){unavailable(error.message+'。原有存档不会被覆盖。');}
 }

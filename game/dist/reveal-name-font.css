@@ -1,0 +1,6 @@
+/* ZCOOL KuaiLe, SIL OFL 1.1; bundled locally for offline reveal names. */
+@font-face{font-family:"ZCOOL KuaiLe";src:url('./assets/fonts/ZCOOLKuaiLe-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+.reveal-item-name,#caption h2{font-family:"ZCOOL KuaiLe","Microsoft YaHei",sans-serif!important;font-weight:700!important}
+
+/* One typeface across the game and preview, retaining local size/weight/stroke. */
+:root,body,body *,body *::before,body *::after{font-family:"ZCOOL KuaiLe","Microsoft YaHei",sans-serif!important}

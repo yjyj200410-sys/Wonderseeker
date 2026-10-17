@@ -20,11 +20,19 @@ test('EXP changes queue unlocks once and preserve claimed grants and used free o
 test('debug master switch alone does not alter drops; optional high drops apply to every container',()=>{
  let s=setDebugValue(debug(),e,'xp',String(e.progression.paid_tier_unlock_total_xp[5]));s=setDebugValue(s,e,'balance','999999999999');
  assert.ok(openBox(s,e,items,6,1,random).pending.drops.every(d=>items[d.id].grade!==8));
- s.settings.debugHighDrop=true;for(let tier=0;tier<=6;tier++){const next=openBox(s,e,items,tier,1,random);assert.ok(next.pending.drops.some(d=>items[d.id].grade===8));validate(next,e,items);}
+ s.settings.debugHighDrop=true;for(let tier=0;tier<=6;tier++){const next=openBox(s,e,items,tier,1,random);assert.ok(next.pending.drops.some(d=>items[d.id].grade===8));assert.ok(next.pending.drops.some(d=>items[d.id].grade===7));assert.equal(next.pending.drops.length,Math.max(2,e.boxes[tier].item_count));validate(next,e,items);validate(done(next),e,items);}
  s.settings.debugMode=false;assert.ok(openBox(s,e,items,6,1,random).pending.drops.every(d=>items[d.id].grade!==8));
 });
 test('debug values reject malformed, unsafe and pending-result edits',()=>{
  const s=debug();for(const value of ['-1','1.5','abc','01'])assert.throws(()=>setDebugValue(s,e,'xp',value));assert.throws(()=>setDebugValue(s,e,'xp','9007199254740992'));
  assert.throws(()=>setDebugValue(s,e,'balance','-1'));assert.throws(()=>setDebugValue(openBox(s,e,items,0,1,random),e,'balance','0'),/结果/);
  assert.throws(()=>validate({...s,debugAdjustments:{balance:'x',xp:0}},e,items),/调试调整/);
+});
+
+test('free debug bonus survives settlement, disabling debug and save reload',()=>{
+ let s=debug();s.settings.debugHighDrop=true;
+ for(let i=0;i<3;i++){s=done(openBox(s,e,items,0,i,random));validate(s,e,items);}
+ assert.equal(s.debugBonusDropCount,3);
+ s.settings.debugMode=false;s=JSON.parse(JSON.stringify(s));validate(s,e,items);
+ const normal=openBox(s,e,items,0,5,random);assert.equal(normal.pending.drops.length,1);validate(done(normal),e,items);
 });

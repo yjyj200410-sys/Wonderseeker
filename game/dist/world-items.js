@@ -148,7 +148,7 @@ export const worldItems = [
     "grade": 6,
     "footprint": [
       1,
-      4
+      9
     ],
     "description": "两端金箍，中间一段乌铁，镌有“如意金箍棒”之名，重一万三千五百斤，长短随心。",
     "texture": "./assets/items/world-6-golden-staff-v3.png"
@@ -159,7 +159,7 @@ export const worldItems = [
     "grade": 6,
     "footprint": [
       2,
-      2
+      3
     ],
     "description": "短柄承起沉重的铁锤，古老的雷声藏在锤面的纹路里。",
     "texture": "./assets/items/world-6-thunder-hammer-v4.png"

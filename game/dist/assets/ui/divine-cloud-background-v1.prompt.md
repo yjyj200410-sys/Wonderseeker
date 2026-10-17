@@ -1,0 +1,7 @@
+# 神圣云海背景 V1
+
+生成方式：内置 image_gen。生成尺寸：1536 × 1024。预览用素材：`divine-cloud-background-v1.png`。
+
+## 完整生成提示词
+
+Use case: stylized-concept. Asset type: full-bleed 2D cartoon fantasy game reward-reveal BACKGROUND PLATE, landscape 1536x1024 composition. Create a polished hand-painted heavenly atmosphere for a sacred magical item reveal. The actual item, animated corona and moving rune circles will be composited later in code, so DO NOT paint any item, rune, glyph, circle, halo, UI or text. Broad, simple stylized cloud shapes softly framing the outer corners only, a luminous open central field occupying at least the central 65% of the image. Gentle heavenly shafts of warm light from above, very soft painterly layered atmosphere, charming premium cartoon game illustration, clean large shapes, no realistic cloud detail. Color direction: bright rich sky blue and turquoise at outer upper corners, warm cream ivory and soft golden sunlight through the broad center, restrained blush peach on lower cloud edges. Saturated but harmonious, NOT a full rainbow color wheel or neon gradient, no purple haze, no dark vignette. Sacred, inviting, celebratory and airy. Center focal point at x50%, y44%; low contrast central negative space so a gold item and dynamic white-gold effects remain readable. All meaningful decoration stays at extreme edges, safe for wide or tall center crops. No buildings, temples, landscape horizon, characters, wings, gems, stars, sparkles, dots, dense patterns, tiny details, lettering, watermarks or border. Background only, opaque image.

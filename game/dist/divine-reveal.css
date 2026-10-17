@@ -1,0 +1,16 @@
+/* The coronation uses the same renderer and timing as reveal-lab. */
+.treasure-page.divine-reveal{background:linear-gradient(34deg,#610719 4%,#b71c29 37%,#ec4427 65%,#e8af40 100%)!important;overflow:hidden;isolation:isolate}
+.divine-reveal::before,.divine-reveal::after{display:none!important}
+.divine-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.divine-reveal .treasure-rewards{position:absolute;left:0;top:50%;width:100%;max-width:none;transform:translateY(-50%);z-index:1;pointer-events:none}
+.divine-reveal .treasure-item{width:clamp(195px,30vmin,290px);height:clamp(195px,30vmin,290px);animation:loot-arrive .3s ease-out both!important;opacity:1;will-change:transform,opacity}
+.divine-reveal .loot-spectrum-glow{display:none!important}
+.divine-reveal .treasure-item :is(.item-texture,svg){filter:none!important;animation:none!important}
+.divine-reveal .loot-spectrum-art{filter:none!important;animation:none!important}
+.divine-reveal .reveal-remaining{z-index:2}
+.divine-reveal.divine-fallback{background:radial-gradient(circle at 50% 44%,#7c6575,#222c48 65%,#111528)!important}
+.divine-fallback .treasure-item{opacity:1}
+.reduce-motion .divine-reveal .treasure-item{will-change:auto}
+
+.reduce-motion .divine-reveal .treasure-item{animation:none!important}
+@media(prefers-reduced-motion:reduce){.divine-reveal .treasure-item{animation:none!important}}

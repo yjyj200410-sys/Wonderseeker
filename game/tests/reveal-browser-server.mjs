@@ -29,4 +29,4 @@ http.createServer(async(req,res)=>{
   if(name==='/app.js')body=body.toString().replace('let enteredGame = false','let enteredGame = true').replace('rewardIndex=-1,overviewUntil','rewardIndex=0,overviewUntil');
   res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(body);
  }catch{res.writeHead(404);res.end();}
-}).listen(4175,'127.0.0.1',()=>console.log('Isolated reveal QA: http://127.0.0.1:4175/'));
+}).listen(Number(process.argv[2]||4175),'127.0.0.1',()=>console.log('Isolated reveal QA ready')); 

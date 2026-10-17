@@ -18,7 +18,7 @@ export function makeItems(economy) {
     ['蓝釉茶壶','blue-teapot',[2,2],'云纹浮在蓝釉上，仿佛盛着一壶晴朗的天空。'],
     ['银怀表','silver-pocket-watch',[2,2],'银壳里的指针依然走动，替失约的人守着时间。'],
     ['翡翠龟','jade-turtle',[2,2],'整块翡翠雕成的小龟，背上的金纹藏着漫长岁月。'],
-    ['皇家八音盒','royal-music-box',[3,2],'掀开珐琅盒盖，金色小鸟便唱起失落王庭的舞曲。'],
+    ['皇家八音盒','royal-music-box',[3,3],'掀开珐琅盒盖，金色小鸟便唱起失落王庭的舞曲。'],
     ['星曜仪','stellar-armillary',[3,3],'金环约束着一颗微缩星辰，每次转动都映出不同的星空。']
   ];
   additions.forEach(([name,file,footprint,description],g)=>{const grade=g===4?6:g+1;items.push({id:g===4?'g6-04':`g${g+1}-02`,name,grade,shape:0,price:String(economy.ordinary.value_slots[grade-1][0]),texture:`./assets/items/grade-${g+1}-${file}-v2.png`,footprint,description});});

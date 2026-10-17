@@ -146,10 +146,13 @@ export function openBox(state, e, items, tier, now = Date.now(), random = unifor
   assert(BigInt(state.balance) >= BigInt(cost), '游戏币不足，可先探索免费的下水道');
   const s = copy(state), drops = [], previous = new Set(Object.keys(state.seen)), usedNew = new Set();
   const weights = weightsFor(e, tier, state.paidOpens + 1);
-  for (let n = 0; n < box.item_count; n++) {
+  const highDrop=!!(s.settings.debugMode&&s.settings.debugHighDrop);
+  const bonusDrops=highDrop?Math.max(0,2-box.item_count):0;
+  if(bonusDrops)s.debugBonusDropCount=(s.debugBonusDropCount||0)+bonusDrops;
+  for (let n = 0; n < box.item_count+bonusDrops; n++) {
     let id;
-    if (s.settings.debugMode && s.settings.debugHighDrop && n === 0) {
-      const grade=box.ex_numerator_per_million>0?8:weights.findLastIndex(w=>w>0)+1;
+    if (highDrop && n < 2) {
+      const grade=n===0?8:7;
       const pool=Object.values(items).filter(item=>item.grade===grade);id=pool[random(pool.length)].id;
     }
     else if (random(1000000) < box.ex_numerator_per_million) id = `ex-${weighted(e.ex.conditional_weights, random) + 1}`;
@@ -244,6 +247,13 @@ export function finish(state) {
   assert(state.pending && state.pending.drops.every(d => d.status), '还有物品未处理');
   const s = copy(state); s.pending = null; s.tutorialDone = true; return s;
 }
+// Resume an interrupted opening by committing its remaining drops exactly once.
+export function settleInterruptedOpen(state){
+ if(!state.pending)return state;
+ const next=autoSellDrops(state);
+ const choices=Object.fromEntries(next.pending.drops.filter(d=>!d.status).map(d=>[d.key,'keep']));
+ return finish(settle(next,choices));
+}
 export function exhibited(state, id) { return state.display.filter(x => x === id).length; }
 export function sellInventory(state, id, qty) {
   const entry = state.inventory[id];
@@ -282,7 +292,8 @@ export function validate(s, e, items) {
   assert(s.inventory && typeof s.inventory === 'object' && !Array.isArray(s.inventory) && s.seen && typeof s.seen === 'object' && !Array.isArray(s.seen), '物品记录无效');
   for (const [id, entry] of Object.entries(s.seen)) assert(known(id) && entry && int(entry.count) && entry.count > 0 && int(entry.firstAt), '图鉴记录无效');
   const found = Object.values(s.seen).reduce((n, entry) => n + entry.count, 0);
-  assert(int(s.clearedDropCount??0)&&int(found) && found+(s.clearedDropCount??0) === s.stats.opens.reduce((n, count, i) => n + count * e.boxes[i].item_count, 0), '发现数量不一致');
+  assert(int(s.debugBonusDropCount??0),'调试额外掉落数量无效');
+  assert(int(s.clearedDropCount??0)&&int(found) && found+(s.clearedDropCount??0) === s.stats.opens.reduce((n, count, i) => n + count * e.boxes[i].item_count, 0)+(s.debugBonusDropCount??0), '发现数量不一致');
   const history = s.economyHistory;
   if (history !== undefined) assert(history && e.previous_economy && history.version === e.previous_economy.version && Array.isArray(history.opens) && history.opens.length === 7 && history.opens.every((n,i)=>int(n)&&n<=s.stats.opens[i]), '旧经济记录无效');
   assert(s.containerUnlocks===undefined || (s.containerUnlocks && typeof s.containerUnlocks==='object' && !Array.isArray(s.containerUnlocks) && Object.entries(s.containerUnlocks).every(([tier,status])=> /^[1-6]$/.test(tier) && ['pending','ready','used'].includes(status) && (unlocked(e,Number(tier),s.xp)||!!s.debugAdjustments) && (status!=='used'||s.stats.opens[Number(tier)]>(s.economyHistory?.opens[Number(tier)]||0)))), '容器解锁记录无效');
@@ -305,7 +316,7 @@ export function validate(s, e, items) {
   if (s.pending !== null) {
     const p = s.pending;
     const cost = p && int(p.tier) && p.tier <= 6 ? (history && history.opens[p.tier] === s.stats.opens[p.tier] ? e.previous_economy.box_prices[p.tier] : e.boxes[p.tier].price) : undefined;
-    assert(p && int(p.tier) && p.tier <= 6 && p.cost === String(p.freeUnlock ? 0 : cost) && (p.freeUnlock===undefined || typeof p.freeUnlock==='boolean') && (!p.freeUnlock || s.containerUnlocks?.[p.tier]==='used') && int(p.openedAt) && Array.isArray(p.drops) && p.drops.length === e.boxes[p.tier].item_count && Array.isArray(p.rewards), '开箱记录无效');
+    assert(p && int(p.tier) && p.tier <= 6 && p.cost === String(p.freeUnlock ? 0 : cost) && (p.freeUnlock===undefined || typeof p.freeUnlock==='boolean') && (!p.freeUnlock || s.containerUnlocks?.[p.tier]==='used') && int(p.openedAt) && Array.isArray(p.drops) && (p.drops.length === e.boxes[p.tier].item_count || (p.tier===0&&p.drops.length===2&&(s.debugBonusDropCount??0)>0)) && Array.isArray(p.rewards), '开箱记录无效');
     const keys = new Set();
     for (const d of p.drops) {
       assert(d && typeof d.key === 'string' && !keys.has(d.key) && known(d.id) && d.price === items[d.id].price && [null, 'sell', 'keep'].includes(d.status) && typeof d.isNew === 'boolean' && typeof d.keepSuggested === 'boolean' && s.seen[d.id], '掉落记录无效');
